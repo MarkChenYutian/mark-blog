@@ -12,6 +12,11 @@ import 'katex/dist/katex.min.css';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { lightfair } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
+import AppHeader from '../../PublicComponent/Header';
+import AppFooter from '../../PublicComponent/Footer';
+import FailImage from '../../PublicComponent/FailImage';
+import AppPageHeader from '../../PublicComponent/PageHeader';
+
 const { Title, Text, Paragraph } = Typography;
 const { Content } = Layout
 const PhotoLink = process.env.PUBLIC_URL + '/Assets/'
@@ -24,18 +29,16 @@ const markdownRender = {
 function HowDoNeuralNetworkWork(props){
     window.scrollTo(0,0);
     return(
-        <Layout>
-            <Content style={{ padding: '0 32px' }}>
-            <PageHeader
-                    className="site-page-header"
-                    onBack={() => props.HelperFn("000")}
-                    title="How Do Neural Network Work"
-            />
-            <div className="site-layout-content">
-                <PostContent/>
-            </div>
-            </Content>
-        </Layout>
+<Layout>
+        <AppHeader select="2"/>
+        <Content className="site-layout" style={{ padding: '0 24px', marginTop: 64 }}>
+        <AppPageHeader title="How Do Neural Network Work"/>
+          <div className="site-layout-background" style={{ padding: 16 }}>
+              <PostContent/>
+          </div>
+        </Content>
+        <AppFooter/>
+      </Layout>
     );
 }
 
@@ -66,6 +69,7 @@ function PostContent(){
         <center><Image
             width="350px"
             src={`${PhotoLink}HowDoNeuralNetworkWork4.png`}
+            fallback={FailImage}
         /></center>
         <BlockMath math="F(\Theta, x) = f(\theta_5, (f(\theta_3, f(\theta_2, x_2) + f(\theta_1, x_1)), f(\theta_4, f(\theta_2, x_2))))"/>
 
@@ -76,10 +80,12 @@ function PostContent(){
         <Image
             width="200px"
             src={`${PhotoLink}HowDoNeuralNetworkWork1.png`}
+            fallback={FailImage}
         />
         <Image 
             width="200px"
             src={`${PhotoLink}HowDoNeuralNetworkWork3.png`}
+            fallback={FailImage}
         />
         </Space></center>
         <SyntaxHighlighter language="python" style={lightfair}
@@ -122,6 +128,7 @@ plt.show()
         <center><Image
             width="350px"
             src={`${PhotoLink}HowDoNeuralNetworkWork2.png`}
+            fallback={FailImage}
         /></center>
         <SyntaxHighlighter
         style={lightfair}

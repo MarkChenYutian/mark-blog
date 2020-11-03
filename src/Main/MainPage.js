@@ -16,13 +16,15 @@ const {Title, Paragraph, Text} = Typography;
 
 
 const MainContent = () => {
+    window.scrollTo(0,0);
     return (
         <Layout>
         <AppHeader select="1"/>
-        <Content className="site-layout" style={{ padding: '0 50px', marginTop: 64 }}>
+        <Content className="site-layout" style={{ padding: '0 24px', marginTop: 64 }}>
 
           <Breadcrumb style={{ margin: '16px 0' }}>
             <Breadcrumb.Item>Home</Breadcrumb.Item>
+            <Breadcrumb.Item>Main Page</Breadcrumb.Item>
           </Breadcrumb>
 
           <div className="site-layout-background" style={{ padding: 16 }}>
