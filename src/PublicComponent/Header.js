@@ -19,7 +19,9 @@ function AppHeader(props){
             <Menu.Item key="2">
               <Link to="/posts">Posts</Link>
             </Menu.Item>
-            <Menu.Item key="3">Notes</Menu.Item>
+            <Menu.Item key="3">
+              <Link to="/notes">Notes</Link>
+            </Menu.Item>
           </Menu>
         </Header>
     );

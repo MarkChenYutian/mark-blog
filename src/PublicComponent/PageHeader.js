@@ -3,7 +3,7 @@ import '../App.css';
 import 'moment/locale/zh-cn';
 import 'antd/dist/antd.css';
 import '../index.css';
-import {PageHeader, Descriptions} from 'antd'
+import {PageHeader} from 'antd'
 
 function AppPageHeader(props){
     return (

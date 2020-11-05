@@ -7,7 +7,7 @@ import {MailOutlined, ZhihuOutlined} from '@ant-design/icons';
 
 import failImage from '../PublicComponent/FailImage';
 
-const { Link, Title, Paragraph } = Typography;
+const { Link, Title, Paragraph, Text } = Typography;
 const PhotoLink = process.env.PUBLIC_URL + '/Assets/';
 
 function AboutMe(){
@@ -29,10 +29,11 @@ function AboutMe(){
 
             <Paragraph>
             <Title level={4}>Yutian Chen</Title>
-                <Paragraph copyable><MailOutlined/> markchenyutian@gmail.com</Paragraph>
-                ORCiD: <Link href="https://orcid.org/0000-0001-8008-9014">https://orcid.org/0000-0001-8008-9014</Link>
+                <MailOutlined/> <Text copyable>markchenyutian@gmail.com</Text>
                 <br></br>
-                <ZhihuOutlined/>  Home Page: <Link href="https://www.zhihu.com/people/chen-yu-tian-48-79">https://www.zhihu.com/people/chen-yu-tian-48-79</Link>
+                ORCiD: <Text><Link href="https://orcid.org/0000-0001-8008-9014">https://orcid.org/0000-0001-8008-9014</Link></Text>
+                <br></br>
+                <ZhihuOutlined/>  Home Page: <Text><Link href="https://www.zhihu.com/people/chen-yu-tian-48-79">https://www.zhihu.com/people/chen-yu-tian-48-79</Link></Text>
             </Paragraph>
 
             </Space>

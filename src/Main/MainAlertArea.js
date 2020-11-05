@@ -16,9 +16,9 @@ class MainAlertArea extends React.Component{
     state = {
         AlertList : [
             <Alert
-            message="Warning"
+            message="Information"
             description="This Site is under Active Construction"
-            type="warning"
+            type="info"
             showIcon
             />,
 

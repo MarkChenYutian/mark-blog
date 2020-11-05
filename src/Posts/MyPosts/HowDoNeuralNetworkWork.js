@@ -3,10 +3,9 @@ import '../../App.css';
 import 'moment/locale/zh-cn';
 import 'antd/dist/antd.css';
 import '../../index.css';
-import { Image, Layout, PageHeader, Typography, Space, Tag, Divider } from 'antd';
+import { Image, Layout, Typography, Space, Tag, Divider } from 'antd';
 
-import ReactMarkdown from 'react-markdown';
-import math from 'remark-math';
+
 import { InlineMath, BlockMath } from 'react-katex'
 import 'katex/dist/katex.min.css';
 import SyntaxHighlighter from 'react-syntax-highlighter';
@@ -20,11 +19,6 @@ import AppPageHeader from '../../PublicComponent/PageHeader';
 const { Title, Text, Paragraph } = Typography;
 const { Content } = Layout
 const PhotoLink = process.env.PUBLIC_URL + '/Assets/'
-const ReactMarkdownWithHtml = require('react-markdown/with-html')
-const markdownRender = {
-    inlineMath: ({value}) => <InlineMath math={value} />,
-    math: ({value}) => <BlockMath math={value} />
-};
 
 function HowDoNeuralNetworkWork(props){
     window.scrollTo(0,0);
