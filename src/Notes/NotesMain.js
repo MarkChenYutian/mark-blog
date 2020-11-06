@@ -3,7 +3,7 @@ import '../App.css';
 import 'moment/locale/zh-cn';
 import 'antd/dist/antd.css';
 import '../index.css';
-import { Layout, Breadcrumb, Typography, Row, Col, Tag, Card, Space } from 'antd';
+import { Layout, Breadcrumb, Typography, Row, Col, Tag, Card, Space, Divider } from 'antd';
 import {FilePdfOutlined, BookOutlined} from '@ant-design/icons';
 
 import AppHeader from '../PublicComponent/Header';
@@ -160,6 +160,58 @@ const MainNotes = () => {
             </Col>
             </Row>
             </Space>
+            </div>
+
+
+            <Divider></Divider>
+            <Title level={3}>USACO Analysis</Title>
+
+            <div className="site-card-wrapper">
+
+            <Space
+                direction="vertical"
+                style={{width: "100%"}}
+            >
+            <Title level={4}>2016</Title>
+            <Row gutter={16}>
+            <Col span={8}>
+            <a href="#/notes/USACO/Gold/2016-Jan">
+                <Card title="January" bordered={false} hoverable={true}>
+                <Space direction="vertical" size="small">
+                <Tag color="green">Available</Tag><Tag color="gold">Gold Division</Tag>
+                <Text type='secondary'>
+                    <ol>
+                        <li>Angry Cows</li>
+                        <li>Radio Contact</li>
+                        <li>Lights Out</li>
+                    </ol>
+                </Text>
+                </Space>
+                </Card>
+            </a>
+            </Col>
+            <Col span={8}>
+            <a href="https://1drv.ms/b/s!AtCdnSj9ls2qhN4EldJWgEmT3GQ84Q?e=A1BUpZ">
+                <Card title="February" bordered={false} hoverable={true}>
+                <Space direction="vertical">
+                <Tag color="green">Available</Tag><Tag color="gold">Gold Division</Tag>
+                <Text type='secondary'> Placeholder </Text>
+                </Space>
+                </Card>
+            </a>
+            </Col>
+            <Col span={8}>
+            <a>
+                <Card title="December" bordered={false} hoverable={true}>
+                <Space direction="vertical">
+                <Tag color="red">N/A</Tag>
+                </Space>
+                </Card>
+            </a>
+            </Col>
+            </Row>
+            </Space>
+
             </div>
 
           </div>
