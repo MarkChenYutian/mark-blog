@@ -41,7 +41,7 @@ function PostContent(){
 <Paragraph>Cows want to  communicate with each other by walkie-talkies. It is known that a walkie-talkie that costs <InlineMath math="X"/> dollars will have a broadcast radius of <InlineMath math="\sqrt{X}"/>. Given the location of all the cows in the form of <InlineMath math="(x, y)"/> coordinate, what is the minimum cost to buy walkie-talkie such that every cow can communicate with each other (may not be directly but through several 'hops').</Paragraph>
 <Title level={4}>Proposed Solution</Title>
 <Paragraph>Basically, what we want to find in this question is the greatest shortest distance between different points. For each point, we have a shortest distance that connect to other points. The amount of money required is the greatest 'shortest distance'.</Paragraph>
-<Paragraph><Text strong>However, this question requires more than this, since linking each point with a sub graph may lead to several subgraphs that are not connected between each other</Text>.</Paragraph>
+<Paragraph><Text strong>However, this question requires more than this, since linking each point with the nearest point may lead to several subgraphs that are not connected between each other</Text>.</Paragraph>
 <Paragraph>Therefore, we can traverse all the possible point pair and calculate their distance square if they are not in the same sub graph. Below is a draft of code</Paragraph>
 <SyntaxHighlighter style={lightfair} language='python'
 children={`
@@ -51,7 +51,8 @@ for p1 in range (len(Points)):
 	a = Points[p1]
 	for p2 in range (p1 + 1, len(Points)):
 		b = Points[p2]
-		X = max(X, math.sqrt((a[0] - b[0])**2 + (a[1] - b[1])**2)
+		if not InSameGraph(a, b):
+			X = max(X, math.sqrt((a[0] - b[0])**2 + (a[1] - b[1])**2)
 return X
 `}
 />
