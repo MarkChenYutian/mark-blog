@@ -18,7 +18,7 @@ function USACO2016JanGoldAnalysis(props){
    window.scrollTo(0,0);
    return(
        <Layout>
-           <AppHeader select='2'/>
+           <AppHeader select='3'/>
            <Content className='site-layout' style={{ padding: '0 24px', marginTop: 64 }}>
            <AppPageHeader title='USACO 2016 Jan Gold Analysis'/>
            <div className='site-layout-background' style={{ padding: 16 }}>

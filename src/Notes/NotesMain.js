@@ -13,7 +13,7 @@ const {Content} = Layout;
 const {Title, Text} = Typography;
 
 
-const MainNotes = () => {
+const MainNotes = () => { 
     window.scrollTo(0,0);
     return (
         <Layout>
