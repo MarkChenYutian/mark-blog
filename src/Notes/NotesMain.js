@@ -207,10 +207,15 @@ const MainNotes = () => {
             </a>
             </Col>
             <Col span={8}>
-            <a>
+            <a href='#/notes/USACO/Gold/2016-Dec'>
                 <Card title="December" bordered={false} hoverable={true}>
                 <Space direction="vertical">
-                <Tag color="red">N/A</Tag>
+                <Tag color="volcano">Writing</Tag>
+                <Text type='secondary'>
+                    <ol>
+                        <li>Moo-cast</li>
+                    </ol>
+                </Text>
                 </Space>
                 </Card>
             </a>

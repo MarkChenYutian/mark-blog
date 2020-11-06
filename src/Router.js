@@ -7,6 +7,7 @@ import MainNotes from './Notes/NotesMain';
 
 import USACO2016JanGoldAnalysis from './Notes/USACO/USACO-2016-Jan-Gold';
 import USACO2016FebGoldAnalysis from './Notes/USACO/USACO-2016-Feb-Gold';
+import USACO2016DecGoldAnalysis from './Notes/USACO/USACO-2016-Dec-Gold'; 
 
 import HowDoNeuralNetworkWork from './Posts/MyPosts/HowDoNeuralNetworkWork';
 import WhatIsLSTM from './Posts/MyPosts/WhatIsLSTM';
@@ -29,6 +30,7 @@ const BasicRoute = () => (
 
             <Route exact path="/notes/USACO/Gold/2016-Jan" component={USACO2016JanGoldAnalysis}/>
             <Route exact path="/notes/USACO/Gold/2016-Feb" component={USACO2016FebGoldAnalysis}/>
+            <Route exact path="/notes/USACO/Gold/2016-Dec" component={USACO2016DecGoldAnalysis}/>
         </Switch>
     </HashRouter>
 );
