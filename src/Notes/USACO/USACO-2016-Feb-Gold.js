@@ -35,7 +35,7 @@ export default USACO2016FebGoldAnalysis;
 function PostContent(){
  return(<Layout style={{ backgroundColor: 'white', padding: '0'}}>
 <div>
-    <Tag color="green">Ready</Tag>
+<Tag color="gold">Gold Division</Tag><Tag color="green">Ready</Tag>
     <Divider></Divider>
 </div>
 <Title level={3}>Problem 1 Circular Barn</Title>

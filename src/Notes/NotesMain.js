@@ -191,11 +191,17 @@ const MainNotes = () => {
             </a>
             </Col>
             <Col span={8}>
-            <a href="https://1drv.ms/b/s!AtCdnSj9ls2qhN4EldJWgEmT3GQ84Q?e=A1BUpZ">
+            <a href="#/notes/USACO/Gold/2016-Feb">
                 <Card title="February" bordered={false} hoverable={true}>
                 <Space direction="vertical">
                 <Tag color="green">Available</Tag><Tag color="gold">Gold Division</Tag>
-                <Text type='secondary'> Placeholder </Text>
+                <Text type='secondary'>
+                    <ol>
+                        <li>Circular Barn</li>
+                        <li>Circular Barn Revisited</li>
+                        <li>Fenced In</li>
+                    </ol>
+                </Text>
                 </Space>
                 </Card>
             </a>
