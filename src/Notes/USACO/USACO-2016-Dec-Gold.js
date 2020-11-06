@@ -20,9 +20,9 @@ function USACO2016DecGoldAnalysis(props){
    window.scrollTo(0,0);
    return(
        <Layout>
-           <AppHeader select='3'/>
+           <AppHeader select='2'/>
            <Content className='site-layout' style={{ padding: '0 24px', marginTop: 64 }}>
-           <AppPageHeader title='USACO2016DecGold'/>
+           <AppPageHeader title='USACO2016DecGoldAnalysis'/>
            <div className='site-layout-background' style={{ padding: 16 }}>
               <PostContent/>
            </div>
@@ -41,7 +41,8 @@ function PostContent(){
 <Paragraph>Cows want to  communicate with each other by walkie-talkies. It is known that a walkie-talkie that costs <InlineMath math="X"/> dollars will have a broadcast radius of <InlineMath math="\sqrt{X}"/>. Given the location of all the cows in the form of <InlineMath math="(x, y)"/> coordinate, what is the minimum cost to buy walkie-talkie such that every cow can communicate with each other (may not be directly but through several 'hops').</Paragraph>
 <Title level={4}>Proposed Solution</Title>
 <Paragraph>Basically, what we want to find in this question is the greatest shortest distance between different points. For each point, we have a shortest distance that connect to other points. The amount of money required is the greatest 'shortest distance'.</Paragraph>
-<Paragraph>Therefore, we can simply traverse all the possible point pair and calculate their distance square. Below is a draft of code</Paragraph>
+<Paragraph><Text strong>However, this question requires more than this, since linking each point with a sub graph may lead to several subgraphs that are not connected between each other</Text>.</Paragraph>
+<Paragraph>Therefore, we can traverse all the possible point pair and calculate their distance square if they are not in the same sub graph. Below is a draft of code</Paragraph>
 <SyntaxHighlighter style={lightfair} language='python'
 children={`
 Points = [(x1, y1), (x2, y2), ..., (xn, yn)]
@@ -54,9 +55,8 @@ for p1 in range (len(Points)):
 return X
 `}
 />
+<Paragraph>The function <Text code>InSameGraph</Text> can be implemented by storing all the points in a UFDS (Union-find Disjoint Set). With appropriate path compression methods, the time complexity of <Text code>InSameGraph</Text> can be bound to <InlineMath math="O(\log{n})"/>.</Paragraph>
 <Title level={4}>Time Complexity Analysis</Title>
-<Paragraph>This proposed algorithm has a time complexity of <InlineMath math="O(n^2)"/>. Since the number of point <InlineMath math="n"/> in the question is no more than 1000, the computational step of this proposed solution should be no more than <InlineMath math="1	imes 10^7"/>, which means that it will not  use more than 4 sec to run.</Paragraph>
-<Title level={4}>Appendix</Title>
-<Paragraph>In fact, this solution is not the optimal solution. There do exist a way to find the nearest pair more efficiently using binary search and Divide and Conquer. <em>Page 343 of Competitive Programming 3, Chapter 9</em> describe the detailed solution of <Text strong>Closest Pair Problem</Text>.</Paragraph>
+<Paragraph>This proposed algorithm has a time complexity of <InlineMath math="O(n^2\log{n})"/>. Since the number of point <InlineMath math="n"/> in the question is no more than 1000, the computational step of this proposed solution should be no more than <InlineMath math="1	imes 10^7"/>, which means that it will not  use more than 4 sec to run.</Paragraph>
 </Layout>
 );}
