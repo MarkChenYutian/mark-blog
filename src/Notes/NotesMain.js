@@ -105,37 +105,51 @@ const MainNotes = () => {
             </Row>
             <Row gutter={16}>
             <Col span={8}>
-            <a>
+            <a href="https://1drv.ms/b/s!AtCdnSj9ls2qi6lvEXsZTMHB-qr-Ow?e=ZJw6Xl">
                 <Card title="Chemistry" bordered={false} hoverable={true}>
                 <Space direction="vertical">
                 <FilePdfOutlined style={{ fontSize: '30px'}}/>
-                <Tag color="red">N/A</Tag>
+                <Tag color="green">Online</Tag>
+                <Text type='secondary'>Size: 10M</Text>
                 </Space>
                 </Card>
             </a>
             </Col>
             <Col span={8}>
-            <a>
+            <a href="https://1drv.ms/b/s!AtCdnSj9ls2qi6luq4AWgP0brpo-JA?e=QKWfKx">
                 <Card title="Microeconomics" bordered={false} hoverable={true}>
                 <Space direction="vertical">
                 <FilePdfOutlined style={{ fontSize: '30px'}}/>
-                <Tag color="red">N/A</Tag>
+                <Tag color="green">Online</Tag>
+                <Text type='secondary'>Size: 5M</Text>
                 </Space>
                 </Card>
             </a>
             </Col>
             <Col span={8}>
-            <a>
-                <Card title="Physics 1 & CM" bordered={false} hoverable={true}>
+            <a href="https://1drv.ms/b/s!AtCdnSj9ls2qi6ltoy8cDIK7jRUMNA?e=mT85lO">
+                <Card title="Physics 1" bordered={false} hoverable={true}>
                 <Space direction="vertical">
                 <FilePdfOutlined style={{ fontSize: '30px'}}/>
-                <Tag color="red">N/A</Tag>
+                <Tag color="green">Online</Tag>
+                <Text type='secondary'>Size: 1.2M</Text>
                 </Space>
                 </Card>
             </a>
             </Col>
             </Row>
             <Row gutter={16}>
+            <Col span={8}>
+            <a href="https://1drv.ms/b/s!AtCdnSj9ls2qi6lsWUrhefR1HRCGBQ?e=aztaod">
+                <Card title="Physics CM" bordered={false} hoverable={true}>
+                <Space direction="vertical">
+                <FilePdfOutlined style={{ fontSize: '30px'}}/>
+                <Tag color="green">Online</Tag>
+                <Text type='secondary'>Size: 1.5M</Text>
+                </Space>
+                </Card>
+            </a>
+            </Col>
             <Col span={8}>
             <a href="https://onedrive.live.com/redir.aspx?cid=aacd96fd289d9dd0&resid=AACD96FD289D9DD0!77461&parId=AACD96FD289D9DD0!104&authkey=!AL8wrY9_pFimlc">
                 <Card title="Grade 10" bordered={false} hoverable={true}>
@@ -210,7 +224,7 @@ const MainNotes = () => {
             <a href='#/notes/USACO/Gold/2016-Dec'>
                 <Card title="December" bordered={false} hoverable={true}>
                 <Space direction="vertical">
-                <Tag color="volcano">Writing</Tag>
+                <Tag color="volcano">Writing</Tag><Tag color='gold'>Gold Division</Tag>
                 <Text type='secondary'>
                     <ol>
                         <li>Moo-cast</li>

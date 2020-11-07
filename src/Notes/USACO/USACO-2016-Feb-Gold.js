@@ -63,11 +63,11 @@ function PostContent(){
 <ol>
 <li>The first door MUST be open on the left-most room, or no cow can arrive at the left-most room.</li>
 </ol>
-<Paragraph><Image alt="image1" src="https://markchenyutian.github.io/Markchen_Blog/Asset/USACO_2016_Feb_2_2.jpg" width='30%' style={{minWidth: '250px'}} fallback={FailImage} /></Paragraph>
+<Paragraph><Image alt="image1" src={`${PhotoLink}USACO_2016_Feb_2_2.jpg`} width='30%' style={{minWidth: '250px'}} fallback={FailImage} /></Paragraph>
 <ol>
 <li>Suppose a cow enters the barn in door <InlineMath math="k-1"/>, it must arrive its destination before <InlineMath math="k"/>th door, or it can just enter the barn from <InlineMath math="k"/>th door and have less walking distance inside the barn.</li>
 </ol>
-<Paragraph><Image alt="image2" src="https://markchenyutian.github.io/Markchen_Blog/Asset/USACO_2016_Feb_2_1.jpg" width='30%' style={{minWidth: '250px'}} fallback={FailImage} /></Paragraph>
+<Paragraph><Image alt="image2" src={`${PhotoLink}USACO_2016_Feb_2_1.jpg`} width='30%' style={{minWidth: '250px'}} fallback={FailImage} /></Paragraph>
 <Paragraph>Using these two facts, we can use the dynamic programming to solve the linear barn problem.</Paragraph>
 <Paragraph>Let <InlineMath math="T"/> represent a table of size <InlineMath math="n	imes (k-1)"/>.  The value of <InlineMath math="T[n'][k']"/> represent the minimum total distance the cow has walked when there's <InlineMath math="k'+1"/> (since the first door must be open) doors open in the first <InlineMath math="n'"/> doors. The calculation of table can be represent in this pseudocode:
 <BlockMath math="
@@ -82,7 +82,7 @@ function PostContent(){
 &amp;return\; T[k-1][n]
 \end{aligned}
 "/>
-<Image alt="image3" src="https://markchenyutian.github.io/Markchen_Blog/Asset/USACO_2016_Feb_2_3.jpg" width='30%' style={{minWidth: '250px'}} fallback={FailImage} /></Paragraph>
+<Image alt="image3" src={`${PhotoLink}USACO_2016_Feb_2_3.jpg`} width='30%' style={{minWidth: '250px'}} fallback={FailImage} /></Paragraph>
 <Paragraph>Each element in table <InlineMath math="T"/> is made up of a tuple, where the first element represent the minimum total distance the cow has walked when there's <InlineMath math="k'"/> doors open in the first <InlineMath math="n'"/> doors and the second element represent the distance of last opened door to  <InlineMath math="n'"/>th door.</Paragraph>
 <Paragraph>By calculating through this table, we can get the minimum total distance walked when the bar has a start on one specific position with time complexity of <InlineMath math="O(nk)"/>.</Paragraph>
 <Paragraph>Since the whole problem is based on a <Text strong>circular barn</Text>, we should try all <InlineMath math="n"/> possible starting points. Therefore, the total time complexity will be <InlineMath math="O(n^2k)"/>.</Paragraph>
@@ -94,7 +94,7 @@ function PostContent(){
 <Paragraph>There's a rectangle with corner <InlineMath math="(0,0)"/> and <InlineMath math="(A, B)"/>. Farmer John built <InlineMath math="n"/> vertical fences at <InlineMath math="x = a_1, a_2, \cdots a_n"/> and <InlineMath math="m"/> horizontal fences at <InlineMath math="y = b_1, b_2, \cdots, b_m"/>. By doing so, the whole rectangle is divided into <InlineMath math="(n + 1)(m + 1)"/> grids. Now, the farmer want to connect each grid together by removing some of the fences in the rectangle. What is the minimum distance of fence the farmer has to remove to connect EVERY cell in rectangle?</Paragraph>
 <Title level={4}>Proposed Solution</Title>
 <Paragraph>We can see each cell in the rectangle as a node, while the fences between each cell as a bi-directional weighted edge, where the weight equals to the length of fence between two cells. By doing so, we can see the whole field as a graph.</Paragraph>
-<Paragraph><Image alt="image4" src="https://markchenyutian.github.io/Markchen_Blog/Asset/USACO_2016_Feb_3_1.jpg" width='30%' style={{minWidth: '250px'}} fallback={FailImage} /></Paragraph>
+<Paragraph><Image alt="image4" src={`${PhotoLink}USACO_2016_Feb_3_1.jpg`} width='30%' style={{minWidth: '250px'}} fallback={FailImage} /></Paragraph>
 <Paragraph>After we see the whole grid as a graph, we can find that the problem simply want us to provide the sum of weights of the <Text strong>Minimum Span Tree</Text> for the whole graph. Therefore, we can use the greedy algorithm to solve this problem. The pseudocode is shown below</Paragraph>
 <Paragraph><BlockMath math="
 egin{aligned}

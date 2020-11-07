@@ -54,9 +54,9 @@ p1, p2 = None, None`}/>
 <Paragraph>For each explosion, we can use a time complexity of <InlineMath math="O(1)"/> to update the pointer's position.</Paragraph>
 <SyntaxHighlighter style={lightfair} language="python" children={`
 def updatePosition(p1, p2, R):
-    if positions[p1-1] - positions[p1] &lt;= R:
+    if positions[p1-1] - positions[p1] <= R:
         p1 -= 1
-    if positions[p2 + 1] - positions[p2] &lt;= R:
+    if positions[p2 + 1] - positions[p2] <= R:
         p2 += 1
     return p1, p2, R - 1`}/>
 <Paragraph>Therefore, it will take time of <InlineMath math="O(n)"/> for us to simulate one case.</Paragraph>
@@ -65,30 +65,30 @@ def updatePosition(p1, p2, R):
 <Paragraph>Noticing for all possible starting points, given a fixed force <InlineMath math="R"/>, if starting at <InlineMath math="x_i"/> can lead a chain reaction that explode all, we note as <Text code>true</Text>, otherwise, <Text code>false</Text>, the resulting simulation result should look like this:</Paragraph>
 
 <Paragraph>We can use a binary search to find the starting point as well.</Paragraph>
-<SyntaxHighlighter language='python' showLineNumbers={true} style={lightfair}
+<SyntaxHighlighter language='python' showLineNumbers={false} style={lightfair}
 children={`
 def findStartLeft(l, r, R):
     # return True if current R can lead to a chain reaction
     m = (l + r)/2
-    if l &lt;= r:
+    if l <= r:
         if explodePropagateLeft(l): return l
         else: return -1
     if explodePropgateLeft(m): return findStartLeft(m, r, R)
     else: return findStartLeft(l, m-1, R)
 def findStartRight(l, r, R):
     m = (l + r)/2
-    if l &lt;= r:
+    if l <= r:
         if explodePropagateRight(l): return l
         else: return -1
     if explodePropgateRight(m): return findStartRight(l, m, R)
     else: return findStartRight(m+1, r, R)
 def isValid(l, r, R):
-    return findStartLeft(l, r, R) &lt;= findStartRight(l, r, R)`}
+    return findStartLeft(l, r, R) <= findStartRight(l, r, R)`}
 />
 
 <Paragraph>By using nested binary search, the time complexity can be reduced to <InlineMath math="O(n\log{n}\log{n})"/></Paragraph>
 <Title level={4}>Time Complexity Analysis</Title>
-<Paragraph>With time complexity of <InlineMath math="O(n \log{n}\log{n})"/> and <InlineMath math="n &lt; 50,000"/>, the approximate steps it need is <InlineMath math="50,000 	imes 16	imes 16 = 1.3	imes 10^7"/> (Consider that we are performing two binary search to determine the existence of starting point, the actual computation step should multiply with factor of <InlineMath math="2"/>, which is approx. <InlineMath math="2.6	imes 10^7"/>), which is an acceptable computational time complexity for Python 3.</Paragraph>
+<Paragraph>With time complexity of <InlineMath math="O(n \log{n}\log{n})"/> and <InlineMath math="n < 50,000"/>, the approximate steps it need is <InlineMath math="50,000 	imes 16	imes 16 = 1.3	imes 10^7"/> (Consider that we are performing two binary search to determine the existence of starting point, the actual computation step should multiply with factor of <InlineMath math="2"/>, which is approx. <InlineMath math="2.6	imes 10^7"/>), which is an acceptable computational time complexity for Python 3.</Paragraph>
 <Divider></Divider>
 <Title level={3}>Problem 2. Radio Contact</Title>
 <Paragraph><a href="http://usaco.org/index.php?page=viewproblem2&amp;cpid=598">Link to Question</a></Paragraph>
@@ -110,7 +110,7 @@ def isValid(l, r, R):
 <Paragraph>Bessie is on a vertex of a simple polygon with <InlineMath math="n"/> vertices. The coordinate of vertices are <InlineMath math="(x_1, y_1), \cdots (x_n, y_n)"/> listed in a clockwise order. The exit of polygon is located at <InlineMath math="(x_1, y_1)"/>. When the light is out, she forgot which vertex she is on but still remember the whole polygon. By moving clockwise and passing through several edges, she will be able to identify the edge she is on. After she know her position, she will either move clockwise or counter clockwise to get to the nearest exit.</Paragraph>
 <Paragraph>The question asks the <Text strong>greatest difference</Text> between distance Bessie has to go in dark to exit the polygon and the distance Bessie has to go with lights on to exit the polygon in worst case.</Paragraph>
 <Title level={4}>Sample Case Explanation</Title>
-<Paragraph><Image alt="image" src="https://markchenyutian.github.io/Markchen_Blog/Asset/USACO2016JanGold3_1.png" width='30%' style={{minWidth: '250px'}} fallback={FailImage} /></Paragraph>
+<Paragraph><Image alt="image" src={`${PhotoLink}USACO2016JanGold3_1.png`} width='30%' style={{minWidth: '250px'}} fallback={FailImage} /></Paragraph>
 <Title level={4}>Proposed Solution</Title>
 <Paragraph>The Problem can be divide into two parts:</Paragraph>
 <ol>
@@ -118,7 +118,7 @@ def isValid(l, r, R):
 <li>Calculate the shortest distance between an arbitrary vertex on polygon and the exit.</li>
 </ol>
 <Paragraph>For the <Text strong>first</Text> part, we can convert the polygon to a string, where A, B, C and D represents four different types of corners, and integer <InlineMath math="m"/> represent the length of edge.</Paragraph>
-<Paragraph><Image src="https://markchenyutian.github.io/Markchen_Blog/Asset/USACO2016_Jan_Gold3-2.jpg" alt="image2" width='30%' style={{minWidth: '250px'}} fallback={FailImage} /></Paragraph>
+<Paragraph><Image src={`${PhotoLink}USACO2016JanGold3_2.jpg`} alt="image2" width='30%' style={{minWidth: '250px'}} fallback={FailImage} /></Paragraph>
 <Paragraph>For example, the polygon in sample can be represented as</Paragraph>
 <Paragraph><BlockMath math="
 	\text{10C1D10A1}

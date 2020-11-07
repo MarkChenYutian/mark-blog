@@ -22,7 +22,7 @@ function USACO2016DecGoldAnalysis(props){
        <Layout>
            <AppHeader select='2'/>
            <Content className='site-layout' style={{ padding: '0 24px', marginTop: 64 }}>
-           <AppPageHeader title='USACO2016DecGoldAnalysis'/>
+           <AppPageHeader title='USACO 2016 Dec Gold Analysis'/>
            <div className='site-layout-background' style={{ padding: 16 }}>
               <PostContent/>
            </div>
@@ -34,8 +34,10 @@ function USACO2016DecGoldAnalysis(props){
 export default USACO2016DecGoldAnalysis;
 function PostContent(){
  return(<Layout style={{ backgroundColor: 'white', padding: '0'}}>
-<Title level={2}>USACO 2016 Dec Gold Analysis</Title>
-<Divider></Divider>
+<div>
+<Tag color="gold">Gold Division</Tag><Tag color='volcano'>Writing</Tag>
+    <Divider></Divider>
+</div>
 <Title level={3}>Problem 1 Moo-cast</Title>
 <Title level={4}>Problem Summary</Title>
 <Paragraph>Cows want to  communicate with each other by walkie-talkies. It is known that a walkie-talkie that costs <InlineMath math="X"/> dollars will have a broadcast radius of <InlineMath math="\sqrt{X}"/>. Given the location of all the cows in the form of <InlineMath math="(x, y)"/> coordinate, what is the minimum cost to buy walkie-talkie such that every cow can communicate with each other (may not be directly but through several 'hops').</Paragraph>

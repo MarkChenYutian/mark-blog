@@ -14,6 +14,7 @@ import WhatIsLSTM from './Posts/MyPosts/WhatIsLSTM';
 import ResidualNetwork from './Posts/MyPosts/ResidualNetwork';
 import WhatIsBayesNetwork from './Posts/MyPosts/WhatIsBayesNetwork';
 import GradientDescentMethods from './Posts/MyPosts/GradientDescentMethods';
+import TimeComplexityIntro from './Posts/MyPosts/TimeComplexityIntro';
 
 const BasicRoute = () => (
     <HashRouter>
@@ -27,6 +28,7 @@ const BasicRoute = () => (
             <Route exact path="/posts/ResidualNetwork" component={ResidualNetwork}/>
             <Route exact path="/posts/WhatIsBayesNetwork" component={WhatIsBayesNetwork}/>
             <Route exact path="/posts/GradientDescentMethods" component={GradientDescentMethods}/>
+            <Route exact path="/posts/TimeComplexityIntro" component={TimeComplexityIntro}/>
 
             <Route exact path="/notes/USACO/Gold/2016-Jan" component={USACO2016JanGoldAnalysis}/>
             <Route exact path="/notes/USACO/Gold/2016-Feb" component={USACO2016FebGoldAnalysis}/>
