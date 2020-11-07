@@ -97,6 +97,14 @@ const MainPost = () => {
                 excrept = "时间复杂度是我们衡量算法的重要指标之一，一般我们使用大O记号来表示算法的时间复杂度。那么时间复杂度究竟是什么意思呢？我们为什么要用这个指标分析算法呢？"
             />
 
+            <Divider orientation="left"><Title level={4}>Others</Title></Divider>
+            <PostCard
+                Title="Intro to Jupyter Notebook"
+                Link="/posts/IntroToJupyterNotebook"
+                TagList={[<Tag color='default'>Others</Tag>]}
+                excrept="本文讲述了如何从安装 Python 到使用 Jupyter Notebook 进行基本的numpy 与 matplotlib 操作"
+            />
+
             </Space>
           </div>
         </Content>

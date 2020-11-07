@@ -48,7 +48,7 @@ function PostContent(){
 <Paragraph>⚠不推荐安装 Python 3.7.5 以上的版本号，过高的版本号可能造成第三方库不兼容⚠</Paragraph>
 <Paragraph>安装时选择让Python勾选PATH变量的选项，让Python自动处理PATH环境变量</Paragraph>
 <Paragraph>安装结束后<Text strong>重启电脑</Text>，打开命令行，输入</Paragraph>
-<SyntaxHighlighter style={lightfair} children={`>python --version
+<SyntaxHighlighter style={lightfair} children={`python --version
 `}/>
 <Paragraph>后如果显示安装的版本号说明安装成功</Paragraph>
 <Paragraph><Image alt="image-20201107221254354" src={`${PhotoLink}jupyter2.png`}width='80%' style={{minWidth: '250px'}} fallback={FailImage} /></Paragraph>
@@ -64,7 +64,7 @@ function PostContent(){
 <Paragraph>下载完毕后打开，选择在 <Text strong>All Users (require admin previliage)</Text> 上安装</Paragraph>
 <Paragraph>Advance Option 页面上同时勾选 "Add anaconda to PATH environmental variable" 和 "Register Anaconda as the system Python 3.7"</Paragraph>
 <Paragraph>安装后重启，打开命令行，输入</Paragraph>
-<SyntaxHighlighter style={lightfair} children={`>conda --version
+<SyntaxHighlighter style={lightfair} children={`conda --version
 conda info
 `}/>
 <Paragraph>如果安装成功，应该会显示类似下图这样的信息</Paragraph>
@@ -73,18 +73,18 @@ conda info
 <Title level={3}>安装数据科学核心包</Title>
 <Paragraph>Python 在数据科学领域的关键地位主要是由高质量第三方包维护的，这些包在全球拥有数以千万的使用者，并且通过直接用C语言实现底层的方式提高性能表现。</Paragraph>
 <Paragraph>安装之前，我们先打开安装好的 Anaconda，创建一个新的虚拟环境</Paragraph>
-<Paragraph><Image alt="image-20201107223607345" src={`${PhotoLink}jupyter5.png`} width='80%' style={{minWidth: '250px'}} fallback={FailImage} /></Paragraph>
+<Paragraph><Image alt="image-20201107223607345" src={`${PhotoLink}jupyter5.png`} width='40%' style={{minWidth: '250px'}} fallback={FailImage} /></Paragraph>
 <Paragraph>打开后，点击 Environment {'>'} Create ，创建一个新的Python环境</Paragraph>
 <Paragraph><Image alt="image-20201107223846299" src={`${PhotoLink}jupyter6.png`} width='80%' style={{minWidth: '250px'}} fallback={FailImage} /></Paragraph>
 <Paragraph>创建完后，回到Home，在Jupyter Notebook下点击“Install”</Paragraph>
 <Paragraph>Install结束后，打开命令行，输入 （把 <Text code>example</Text>替换成你在上一步创建的虚拟环境的名称）</Paragraph>
-<SyntaxHighlighter children={`
+<SyntaxHighlighter style={lightfair} children={`
 C:\\Users\\28698>conda activate example
 (example) C:\\Users\\28698>conda install numpy
 `}/>
 <Paragraph>左侧的括号说明现在正在虚拟环境中</Paragraph>
 <Paragraph>输入</Paragraph>
-<SyntaxHighlighter children={`
+<SyntaxHighlighter style={lightfair} children={`
 conda install jupyter
 conda install matplotlib
 `}/>
