@@ -3,10 +3,7 @@ import '../../App.css';
 import 'moment/locale/zh-cn';
 import 'antd/dist/antd.css';
 import '../../index.css';
-import { Image, Layout, PageHeader, Typography, Space, Tag, Divider } from 'antd';
-import ReactMarkdown from 'react-markdown';
-import math from 'remark-math';
-import { InlineMath, BlockMath } from 'react-katex';
+import { Image, Layout, Typography, Tag, Divider } from 'antd';
 import 'katex/dist/katex.min.css';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { lightfair } from 'react-syntax-highlighter/dist/esm/styles/hljs';
@@ -16,7 +13,7 @@ import FailImage from '../../PublicComponent/FailImage';
 import AppPageHeader from '../../PublicComponent/PageHeader';const { Title, Text, Paragraph } = Typography;
 const { Content } = Layout;
 const PhotoLink = process.env.PUBLIC_URL + '/Assets/';
-function IntroToJupyterNotebook(props){
+function IntroToJupyterNotebook(){
    window.scrollTo(0,0);
    return(
        <Layout>
@@ -34,6 +31,10 @@ function IntroToJupyterNotebook(props){
 export default IntroToJupyterNotebook;
 function PostContent(){
  return(<Layout style={{ backgroundColor: 'white', padding: '0'}}>
+<div>
+   <Tag color='default'>Others</Tag>
+   <Divider></Divider>
+</div>
 <Title level={2}>如何配置 Jupyter Notebook 环境</Title>
 <ol>
 <li><Text strong>安装 Python 3</Text></li>

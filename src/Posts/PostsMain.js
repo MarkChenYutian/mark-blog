@@ -3,16 +3,14 @@ import '../App.css';
 import 'moment/locale/zh-cn';
 import 'antd/dist/antd.css';
 import '../index.css';
-import { Layout, Breadcrumb, Typography, Space, Alert, Tag, Card, Divider } from 'antd';
-import {PlusOutlined} from '@ant-design/icons';
-import { Link } from 'react-router-dom';
+import { Layout, Breadcrumb, Typography, Space, Alert, Tag, Divider } from 'antd';
 
 import AppHeader from '../PublicComponent/Header';
 import AppFooter from '../PublicComponent/Footer';
 import PostCard from '../PublicComponent/PostCard';
 
 const {Content} = Layout;
-const {Title, Paragraph, Text} = Typography;
+const {Title} = Typography;
 
 const MainPost = () => {
     window.scrollTo(0,0);

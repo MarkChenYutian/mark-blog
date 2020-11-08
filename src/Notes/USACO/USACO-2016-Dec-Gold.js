@@ -20,7 +20,7 @@ function USACO2016DecGoldAnalysis(props){
    window.scrollTo(0,0);
    return(
        <Layout>
-           <AppHeader select='2'/>
+           <AppHeader select='3'/>
            <Content className='site-layout' style={{ padding: '0 24px', marginTop: 64 }}>
            <AppPageHeader title='USACO 2016 Dec Gold Analysis'/>
            <div className='site-layout-background' style={{ padding: 16 }}>
@@ -61,5 +61,23 @@ return X
 <Paragraph>The function <Text code>InSameGraph</Text> can be implemented by storing all the points in a UFDS (Union-find Disjoint Set). With appropriate path compression methods, the time complexity of <Text code>InSameGraph</Text> can be bound to <InlineMath math="O(\log{n})"/>.</Paragraph>
 <Title level={4}>Time Complexity Analysis</Title>
 <Paragraph>This proposed algorithm has a time complexity of <InlineMath math="O(n^2\log{n})"/>. Since the number of point <InlineMath math="n"/> in the question is no more than 1000, the computational step of this proposed solution should be no more than <InlineMath math="1	imes 10^7"/>, which means that it will not  use more than 4 sec to run.</Paragraph>
+
+<Title level={3}>Problem 2. Cow Checklist</Title>
+<Title level={4}>Problem Summary</Title>
+<Paragraph>There are two types of cows, noted as type H and type G. There are <InlineMath math="H"/> cows that are type H and <InlineMath math="G"/> cows that are type G. However, John must access all the cows of type H in order from 1 to <InlineMath math="H"/>, and access all the cows of type G in order from 1 to <InlineMath math="G"/>.</Paragraph>
+<Paragraph>The position of all cows are given as x-y coordinate, moving distance <InlineMath math="d"/> will cost the energy of <InlineMath math="d^2"/>, what is the minimum energy consumption for John to access all cows.</Paragraph>
+<Title level={4}>Proposed Solution</Title>
+<Paragraph>We can use dynamic programming to solve this problem. Let <InlineMath math="E[0][h][g]"/> represent the minimum energy John has to consume to visit <InlineMath math="h"/> H-type cows, <InlineMath math="g"/> G-type cows, and finally stop at H-type cow. <InlineMath math="E[1][h][g]"/> represent the minimum energy John has to consume to visit <InlineMath math="h"/> H-type cows, <InlineMath math="g"/> G-type cows, and finally stop at G-type cow.</Paragraph>
+<Paragraph>Then, we can use this function to calculate through the whole table.
+<BlockMath math='
+E[0][h + 1][g] = \min(E[1][h][g]+Dist(G_g, H_{h+1})^2,\, E[0][h][g] + Dist(H_h, H_{h+1})^2)
+'/></Paragraph>
+<Paragraph><BlockMath math='
+E[0][h][g+1] = \min(E[1][h][g]+Dist(G_g, G_{g+1})^2,\, E[0][h][g] + Dist(H_h, G_{g+1})^2)
+'/></Paragraph>
+<Paragraph>... (the equation for another 2 situations are omitted)</Paragraph>
+<Paragraph>By doing so, we can calculate the result of <InlineMath math="E[0][H][G]"/>, which will be the final result (since John have to end his walk at a H-type cow).</Paragraph>
+<Title level={4}>Time Complexity Analysis</Title>
+<Paragraph>Since calculating one number in the table will have a time complexity of <InlineMath math="O(1)"/>, the total time complexity will be <InlineMath math="O(HG)"/>. Because <InlineMath math="1\leq H\leq 1000"/> and <InlineMath math="1 \leq G \leq 1000"/>, the algorithm will require at most <InlineMath math="1	imes 10^7"/> steps, and it is possible for Python 3 to run in 4 sec.</Paragraph>
 </Layout>
 );}

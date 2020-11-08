@@ -3,20 +3,16 @@ import '../../App.css';
 import 'moment/locale/zh-cn';
 import 'antd/dist/antd.css';
 import '../../index.css';
-import { Image, Layout, PageHeader, Typography, Space, Tag, Divider } from 'antd';
-import ReactMarkdown from 'react-markdown';
-import math from 'remark-math';
+import { Image, Layout, Typography, Tag, Divider } from 'antd';
 import { InlineMath, BlockMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { lightfair } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import AppHeader from '../../PublicComponent/Header';
 import AppFooter from '../../PublicComponent/Footer';
 import FailImage from '../../PublicComponent/FailImage';
 import AppPageHeader from '../../PublicComponent/PageHeader';const { Title, Text, Paragraph } = Typography;
 const { Content } = Layout;
 const PhotoLink = process.env.PUBLIC_URL + '/Assets/';
-function USACO2016FebGoldAnalysis(props){
+function USACO2016FebGoldAnalysis(){
    window.scrollTo(0,0);
    return(
        <Layout>

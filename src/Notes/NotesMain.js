@@ -109,8 +109,8 @@ const MainNotes = () => {
                 <Card title="Chemistry" bordered={false} hoverable={true}>
                 <Space direction="vertical">
                 <FilePdfOutlined style={{ fontSize: '30px'}}/>
-                <Tag color="green">Online</Tag>
                 <Text type='secondary'>Size: 10M</Text>
+                <Tag color="green">Online</Tag>
                 </Space>
                 </Card>
             </a>
@@ -120,8 +120,8 @@ const MainNotes = () => {
                 <Card title="Microeconomics" bordered={false} hoverable={true}>
                 <Space direction="vertical">
                 <FilePdfOutlined style={{ fontSize: '30px'}}/>
-                <Tag color="green">Online</Tag>
                 <Text type='secondary'>Size: 5M</Text>
+                <Tag color="green">Online</Tag>
                 </Space>
                 </Card>
             </a>
@@ -131,8 +131,8 @@ const MainNotes = () => {
                 <Card title="Physics 1" bordered={false} hoverable={true}>
                 <Space direction="vertical">
                 <FilePdfOutlined style={{ fontSize: '30px'}}/>
-                <Tag color="green">Online</Tag>
                 <Text type='secondary'>Size: 1.2M</Text>
+                <Tag color="green">Online</Tag>
                 </Space>
                 </Card>
             </a>
@@ -144,8 +144,8 @@ const MainNotes = () => {
                 <Card title="Physics CM" bordered={false} hoverable={true}>
                 <Space direction="vertical">
                 <FilePdfOutlined style={{ fontSize: '30px'}}/>
-                <Tag color="green">Online</Tag>
                 <Text type='secondary'>Size: 1.5M</Text>
+                <Tag color="green">Online</Tag>
                 </Space>
                 </Card>
             </a>
@@ -228,6 +228,7 @@ const MainNotes = () => {
                 <Text type='secondary'>
                     <ol>
                         <li>Moo-cast</li>
+                        <li>Cow Checklist</li>
                     </ol>
                 </Text>
                 </Space>

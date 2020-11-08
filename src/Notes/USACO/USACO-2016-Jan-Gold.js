@@ -3,7 +3,7 @@ import '../../App.css';
 import 'moment/locale/zh-cn';
 import 'antd/dist/antd.css';
 import '../../index.css';
-import { Image, Layout, Typography, Space, Tag, Divider } from 'antd';
+import { Image, Layout, Typography, Tag, Divider } from 'antd';
 import { InlineMath, BlockMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
 import SyntaxHighlighter from 'react-syntax-highlighter';
@@ -125,7 +125,7 @@ def isValid(l, r, R):
 "/></Paragraph>
 <Paragraph>One primitive way to find the shortest unique substring is to maintain a set of pointers, where the pointers represent the starting of one substring that has the same pattern.</Paragraph>
 <Paragraph type="secondary">
-<Paragraph>For instance, suppose we have a string "10C1D10A10C10A", when Bessie pass by the first edge, she can get information "10C". At this time, the pointer set will be {0, 8}, since [0:3] and [8:11] are both "10C".</Paragraph>
+<Paragraph>For instance, suppose we have a string "10C1D10A10C10A", when Bessie pass by the first edge, she can get information "10C". At this time, the pointer set will be {"0, 8"}, since [0:3] and [8:11] are both "10C".</Paragraph>
 <Paragraph>Then, Bessie pass by another edge and get new info "1D",  the pointer set will be reduced to {0}. Since [0 + 3: 0+3+2] is "1D", while "[8+3: 8+3+2]" is "10".</Paragraph>
 </Paragraph>
 <Paragraph>This will have a time complexity of <InlineMath math="O(n^2)"/>.</Paragraph>
