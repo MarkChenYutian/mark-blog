@@ -35,7 +35,7 @@ function PostContent(){
     <Divider></Divider>
 </div>
 <Title level={3}>Problem 1 Circular Barn</Title>
-<Paragraph><a href="http://usaco.org/index.php?page=viewproblem2&amp;cpid=621">Link to Question</a></Paragraph>
+<Paragraph><a href="http://usaco.org/index.php?page=viewproblem2&cpid=621">Link to Question</a></Paragraph>
 <Title level={4}>Question Summary</Title>
 <Paragraph>The farmer has a circular barn with room numbered from 1 to <InlineMath math="n, 3\leq n\leq 1	imes 10^5"/> . Each room is connected to the rooms that is adjacent to it, and there has one door in each room opened to outside space. Farmer wants each single cow to stay in one single room. Currently, the cows are staying outside the barn randomly, which means that some door may have multiple cows outside it, or have no cows outside it. The energy cost for each cow is <InlineMath math="	ext{dist}^2"/>. The question ask for the minimum energy cost to make each cow stay in each room singly.</Paragraph>
 <Title level={4}>Proposed Solution</Title>
@@ -51,7 +51,7 @@ function PostContent(){
 <Paragraph>Since <InlineMath math="3\leq n\leq 1	imes 10^5"/>, with the time complexity of <InlineMath math="O(n)"/>, we can have at most <InlineMath math="1	imes 10^6"/> computational step and we can AC this problem with Python 3 in the time limit.</Paragraph>
 <Divider></Divider>
 <Title level={3}>Problem 2 Circular Barn Revisited</Title>
-<Paragraph><a href="http://usaco.org/index.php?page=viewproblem2&amp;cpid=622">Link to Question</a></Paragraph>
+<Paragraph><a href="http://usaco.org/index.php?page=viewproblem2&cpid=622">Link to Question</a></Paragraph>
 <Title level={4}>Problem Summary</Title>
 <Paragraph>The farmer wants to have exactly <InlineMath math="r_i"/> cows in room <InlineMath math="i"/>, where <InlineMath math="0\leq r_i \leq 1	imes 10^6"/>. Although there are <InlineMath math="n"/> rooms in the circular barn, farmer John only want to open <InlineMath math="k"/> doors to let cows enter the barn (<InlineMath math="1\leq k \leq 7"/>). All the cows can  ONLY walk clockwise inside the barn. He wants to know the minimum total distance for cows to move after entering the barn.</Paragraph>
 <Title level={4}>Proposed Solution</Title>
@@ -67,15 +67,15 @@ function PostContent(){
 <Paragraph>Using these two facts, we can use the dynamic programming to solve the linear barn problem.</Paragraph>
 <Paragraph>Let <InlineMath math="T"/> represent a table of size <InlineMath math="n	imes (k-1)"/>.  The value of <InlineMath math="T[n'][k']"/> represent the minimum total distance the cow has walked when there's <InlineMath math="k'+1"/> (since the first door must be open) doors open in the first <InlineMath math="n'"/> doors. The calculation of table can be represent in this pseudocode:
 <BlockMath math="
-egin{aligned}
-&amp;	ext{each element in }T = \infty\
-&amp;T[0][0] \leftarrow (0, 1)\
-&amp;	ext{for }T[i][j] 	ext{ in } T\
-&amp;\quad \quad	ext{if }T[i+1][j+1][0] &gt; T[i][j][0]\
-&amp;\quad \quad \quad \quad T[i + 1][j + 1] \leftarrow (T[i][j][0], 0)\
-&amp;\quad \quad 	ext{if }T[i][j+1][0] &gt; (T[i][j][0] + T[i][j][1] 	imes r_{j+1})\
-&amp;\quad \quad \quad \quad T[i][j + 1] \leftarrow (T[i][j][0] + T[i][j][1] 	imes r_{j+1}, T[i][j][1] + 1)\
-&amp;return\; T[k-1][n]
+\begin{aligned}
+&\text{each element in }T = \infty\\
+&T[0][0] \leftarrow (0, 1)\\
+&\text{for }T[i][j] \text{ in } T\\
+&\quad \quad \text{if }T[i+1][j+1][0] > T[i][j][0]\\
+&\quad \quad \quad \quad T[i + 1][j + 1] \leftarrow (T[i][j][0], 0)\\
+&\quad \quad \text{if }T[i][j+1][0] > (T[i][j][0] + T[i][j][1] \times r_{j+1})\\
+&\quad \quad \quad \quad T[i][j + 1] \leftarrow (T[i][j][0] + T[i][j][1] \times r_{j+1}, T[i][j][1] + 1)\\
+&return\; T[k-1][n]
 \end{aligned}
 "/>
 <Image alt="image3" src={`${PhotoLink}USACO_2016_Feb_2_3.jpg`} width='30%' style={{minWidth: '250px'}} fallback={FailImage} /></Paragraph>
@@ -93,19 +93,19 @@ function PostContent(){
 <Paragraph><Image alt="image4" src={`${PhotoLink}USACO_2016_Feb_3_1.jpg`} width='30%' style={{minWidth: '250px'}} fallback={FailImage} /></Paragraph>
 <Paragraph>After we see the whole grid as a graph, we can find that the problem simply want us to provide the sum of weights of the <Text strong>Minimum Span Tree</Text> for the whole graph. Therefore, we can use the greedy algorithm to solve this problem. The pseudocode is shown below</Paragraph>
 <Paragraph><BlockMath math="
-egin{aligned}
-&amp; // 	ext{Fringe is a Priority Queue that will always output the smallest element in it}\
-&amp;L =0\
-&amp;	ext{Connected} = \phi \
-&amp;	ext{Fringe} = { V_0.allEdges } \
-&amp;	ext{While Fringe is not Empty}\
-&amp;\quad \quad 	ext{newEdge } \leftarrow 	ext{Fringe.pop()}\
-&amp;\quad \quad 	ext{While newEdge.destination } \in 	ext{Connected}\
-&amp;\quad \quad \quad \quad 	ext{newEdge }\leftarrow 	ext{Fringe.pop()}\
-&amp;\quad \quad 	ext{Fringe }=	ext{Fringe } \cup 	ext{ newEdge.destination.allEdges}\
-&amp;\quad \quad 	ext{Connected }=	ext{Connected }\cup 	ext{ newEdge.destination}\
-&amp;\quad \quad L \leftarrow L+	ext{newEdge.wieght}\
-&amp;return\quad L
+\begin{aligned}
+&//\text{Fringe is a Priority Queue that will always output the smallest element in it}\\
+&L =0\\
+&\text{Connected} = \phi \\
+&\text{Fringe} = { V_0.allEdges } \\
+&\text{While Fringe is not Empty}\\
+&\quad \quad \text{newEdge } \leftarrow \text{Fringe.pop()}\\
+&\quad \quad \text{While newEdge.destination } \in 	\text{Connected}\\
+&\quad \quad \quad \quad \text{newEdge }\leftarrow \text{Fringe.pop()}\\
+&\quad \quad \text{Fringe }=\text{Fringe } \cup 	\text{ newEdge.destination.allEdges}\\
+&\quad \quad \text{Connected }=\text{Connected }\cup \text{ newEdge.destination}\\
+&\quad \quad L \leftarrow L+\text{newEdge.wieght}\\
+&return\quad L
 \end{aligned}
 "/></Paragraph>
 <Title level={4}>Time Complexity Analysis</Title>

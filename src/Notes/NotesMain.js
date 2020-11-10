@@ -224,11 +224,12 @@ const MainNotes = () => {
             <a href='#/notes/USACO/Gold/2016-Dec'>
                 <Card title="December" bordered={false} hoverable={true}>
                 <Space direction="vertical">
-                <Tag color="volcano">Writing</Tag><Tag color='gold'>Gold Division</Tag>
+                <Tag color="green">Available</Tag><Tag color='gold'>Gold Division</Tag>
                 <Text type='secondary'>
                     <ol>
                         <li>Moo-cast</li>
                         <li>Cow Checklist</li>
+                        <li>Lasers and Mirrors</li>
                     </ol>
                 </Text>
                 </Space>

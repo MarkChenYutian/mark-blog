@@ -14,7 +14,7 @@ import FailImage from '../../PublicComponent/FailImage';
 import AppPageHeader from '../../PublicComponent/PageHeader';const { Title, Text, Paragraph } = Typography;
 const { Content } = Layout;
 const PhotoLink = process.env.PUBLIC_URL + '/Assets/';
-function USACO2016JanGoldAnalysis(props){
+function USACO2016JanGoldAnalysis(){
    window.scrollTo(0,0);
    return(
        <Layout>
@@ -101,7 +101,7 @@ def isValid(l, r, R):
 <Paragraph>Build up a table with size <InlineMath math="M 	imes N"/> called <InlineMath math="E"/>. <InlineMath math="E[m][n]"/> represent the <Text strong>minimum energy radio has consumed</Text> after farmer takes <InlineMath math="m"/> moves and Bessie takes <InlineMath math="n"/> moves. Since the square of distance is always non-negative, either farmer or Bessie (or both) will have to take one step in one tick. Therefore, the result at <InlineMath math="E[m][n]"/> can be used to calculate <InlineMath math="E[m + 1][n]"/>, <InlineMath math="E[m  + 1][n + 1]"/> and <InlineMath math="E[m][n + 1]"/>, which represent that Bessie stop, no one stop, and Farmer stop, respectively.</Paragraph>
 <Paragraph>To start at a specific position, say <InlineMath math="E[x][y]"/> in the table, we must make sure the value on this position is already the minimum energy, which means that <InlineMath math="E[x-1][y]"/>, <InlineMath math="E[x-1][y-1]"/>, and <InlineMath math="E[x][y-1]"/> has been calculated. Therefore, we should calculate the whole table from top to down, and in each row from left to right.</Paragraph>
 <Title level={4}>Time and Space Complexity Analysis</Title>
-<Paragraph>Calculating the value of adjacent cell in a table will have a time complexity of <InlineMath math="O(1)"/>, and we will have to calculate each cell inside the table, so the total time complexity will be <InlineMath math="O(MN) pprox O(N^2)"/>. Since the upper bound of <InlineMath math="N"/> is only <InlineMath math="1	imes 10^3"/>, we can use Python3 to solve this problem.</Paragraph>
+<Paragraph>Calculating the value of adjacent cell in a table will have a time complexity of <InlineMath math="O(1)"/>, and we will have to calculate each cell inside the table, so the total time complexity will be <InlineMath math="O(MN) \approx O(N^2)"/>. Since the upper bound of <InlineMath math="N"/> is only <InlineMath math="1	imes 10^3"/>, we can use Python3 to solve this problem.</Paragraph>
 <Paragraph>To store the result for Dynamic Programming (memorization), we have to build a two-dimensional array with size <InlineMath math="1000	imes 1000"/>, and the space complexity should not be a problem.</Paragraph>
 <Divider></Divider>
 <Title level={3}>Problem 3. Lights Out</Title>
