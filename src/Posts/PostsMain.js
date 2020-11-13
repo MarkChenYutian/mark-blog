@@ -53,6 +53,13 @@ const MainPost = () => {
                 TagList={[<Tag color="blue">How Do Neural Network Work</Tag>, <Tag color="blue">Artificial Intelligence</Tag>, <Tag color="blue">Machine Learning</Tag>]}
                 excrept="神经网络作为一种新兴的计算机技术被许多人称为一种全新的“编程范式”，与往常的算法编写不同，神经网络是一种“数据驱动”的编程方法。在往常的算法编写中，人们需要手动编写算法的逻辑，而在神经网络中，人们只需要为网络提供海量数据和参考答案，网络就会自动生成算法。那么神经网络到底是怎么工作的呢？<"
             />
+
+            <PostCard
+                Title="Gradient Descent Methods"
+                Link="/posts/GradientDescentMethods"
+                TagList={[<Tag color="blue">Neural Network</Tag>, <Tag color="blue">Artificial Intelligence</Tag>, <Tag color="blue">Machine Learning</Tag>]}
+                excrept="神经网络的训练本质上是通过调节参数来最小化模型输出的损失函数。然而如何调节参数看似简单实际却有许多技巧和方法来优化。这篇文章会介绍最基本的随机梯度下降，采用一阶动量的SGD with momentum，和采用自适应学习率的AdaGrad, RMS Prop, 和集大成者 Adam。这些模型各自有各自的特点，并且在不同的场景中各有优劣。"
+            />
             
             <PostCard
                 Title="What is LSTM"
@@ -66,14 +73,6 @@ const MainPost = () => {
                 Link="/posts/ResidualNetwork"
                 TagList={[<Tag color="blue">Neural Network</Tag>, <Tag color="blue">Artificial Intelligence</Tag>, <Tag color="blue">Machine Learning</Tag>]}
                 excrept="在深度学习中，两个严重影响了模型效果的问题是梯度消失问题与梯度下降问题。这两个问题的出现与深度学习的根本机制 - 反向传播损失函数梯度有关。在很长一段时间里，人们认为超过100层的网络是“不可训练”的。然而残差网络 (Residual Network, ResNet) 的出现改变了这一切。通过设计“短路”机制，残差网络可以让梯度更好的在网络的层之间传播，从而使得训练500+层的超深神经网络成为了可能。相似的机制也启发了一大批拥有shortcut connection的神经网络，例如在医学图像处理领域常见的 U-net 和 Dense Net。"
-            />
-            
-
-            <PostCard
-                Title="Gradient Descent Methods"
-                Link="/posts/GradientDescentMethods"
-                TagList={[<Tag color="blue">Neural Network</Tag>, <Tag color="blue">Artificial Intelligence</Tag>, <Tag color="blue">Machine Learning</Tag>]}
-                excrept="神经网络的训练本质上是通过调节参数来最小化模型输出的损失函数。然而如何调节参数看似简单实际却有许多技巧和方法来优化。这篇文章会介绍最基本的随机梯度下降，采用一阶动量的SGD with momentum，和采用自适应学习率的AdaGrad, RMS Prop, 和集大成者 Adam。这些模型各自有各自的特点，并且在不同的场景中各有优劣。"
             />
             
 
