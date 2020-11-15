@@ -67,6 +67,24 @@ function USACOCards(){
             </a>
             </Col>
             </Row>
+
+            <Title level={4}>2017</Title>
+            <Row>
+            <Col span={8}>
+            <a href='#/notes/USACO/Gold/2017-Jan'>
+                <Card title="January" bordered={false} hoverable={true}>
+                <Space direction="vertical">
+                <Tag color="volcano">Writing</Tag><Tag color='gold'>Gold Division</Tag>
+                <Text type='secondary'>
+                    <ol>
+                        <li>Balanced Photo</li>
+                    </ol>
+                </Text>
+                </Space>
+                </Card>
+            </a>
+            </Col>
+            </Row>
             </Space>
 
             </div>

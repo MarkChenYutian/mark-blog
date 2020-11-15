@@ -8,6 +8,7 @@ import MainNotes from './Notes/NotesMain';
 import USACO2016JanGoldAnalysis from './Notes/USACO/USACO-2016-Jan-Gold';
 import USACO2016FebGoldAnalysis from './Notes/USACO/USACO-2016-Feb-Gold';
 import USACO2016DecGoldAnalysis from './Notes/USACO/USACO-2016-Dec-Gold'; 
+import USACO2017JanGoldAnalysis from './Notes/USACO/USACO-2017-Jan-Gold'; 
 
 import CS3Week8HW from './Notes/CS3_WebApp/Week8Homework';
 
@@ -39,6 +40,7 @@ const BasicRoute = () => (
             <Route exact path="/notes/USACO/Gold/2016-Jan" component={USACO2016JanGoldAnalysis}/>
             <Route exact path="/notes/USACO/Gold/2016-Feb" component={USACO2016FebGoldAnalysis}/>
             <Route exact path="/notes/USACO/Gold/2016-Dec" component={USACO2016DecGoldAnalysis}/>
+            <Route exact path="/notes/USACO/Gold/2017-Jan" component={USACO2017JanGoldAnalysis}/>
 
             <Route exact path="/notes/CS3/Week8/HW" component={CS3Week8HW}/>
         </Switch>
