@@ -78,6 +78,7 @@ function USACOCards(){
                 <Text type='secondary'>
                     <ol>
                         <li>Balanced Photo</li>
+                        <li>Hoof, Paper, Scissors</li>
                     </ol>
                 </Text>
                 </Space>

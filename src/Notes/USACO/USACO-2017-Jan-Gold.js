@@ -78,5 +78,30 @@ arr.sort(key=lambda x: cows[x])
 <li>Calculate L, R, and update <InlineMath math="l[n]"/> - <InlineMath math="O(\log{n})"/></li>
 </ul>
 <Paragraph>Therefore, the total time complexity will be <InlineMath math="O(n\log{n})"/>.</Paragraph>
+
+<Title level={3}>Problem 2. Hoof, Paper, Scissors</Title>
+<Title level={4}>Problem Summary</Title>
+<Paragraph>Hoof Paper Scissors is a game like paper, scissor, stone. In the game, Hoof {'>'} Scissors, Scissors {'>'} Paper, and Paper {'>'} Hoof. The cow Bessie know the sequence of gesture that will be used by Farmer John, but it only can change its gesture for <InlineMath math="k"/> times, where <InlineMath math="k"/> is a number that is less than 20.</Paragraph>
+<Paragraph>Given the gesture sequence of farmer John and maximum number of change (<InlineMath math="k"/>) for Bessie, what is the maximum number of games Bessie can win?</Paragraph>
+<Title level={4}>Proposed Solution</Title>
+<Paragraph>We can use the dynamic programming to solve this problem. First, we noticed that three variables are needed to represent a state for Bessie.</Paragraph>
+<ol>
+<li>The current gesture Bessie is using</li>
+<li>The number of game Bessie has won</li>
+<li>The number of time that Bessie change its gesture</li>
+</ol>
+<Paragraph>Therefore, we will build up a 3D array <InlineMath math="T"/> with size <InlineMath math="3	imes N 	imes k"/>, where <InlineMath math="N"/> is the number of games Bessie and John will have. <InlineMath math="T[0][n][k]"/> represent the maximum number of game that Bessie can win when it has "Hoof" at <InlineMath math="n"/>th game and has changed its gesture for <InlineMath math="k"/> times.</Paragraph>
+<Paragraph>Suppose we have a function <Text code>isWin(gesture, n)</Text> that will return whether Bessie will win. If Bessie wins, return 1; otherwise, return 0. Then we can calculate through the whole table using these equations:
+<BlockMath math='
+\begin{aligned}
+T[g][n][k] = \max (T[g][n-1][k]+ isWin(g, n),\\
+T[(g+1)\%3][n-1][k-1]+ isWin(g, n),\\
+T[(g + 2)\%3][n-1][k-1]+ isWin(g, n))
+\end{aligned}
+'/>
+If either <InlineMath math="n"/> or <InlineMath math="k"/> is out of bound (not in 3D array <InlineMath math="T"/>, return 0.</Paragraph>
+<Paragraph>After calculating through all the table, we should check all the elements in slice <InlineMath math="T[][N][]"/>. (the maximum win number may not require maximum number of change). The final result will be the maximum value of these <InlineMath math="3	imes k"/> values.</Paragraph>
+<Title level={4}>Time Complexity Analysis</Title>
+<Paragraph>Since we know that <InlineMath math="1\leq N\leq 100,000"/> and <InlineMath math="1\leq k\leq 20"/>, the 3D array we will construct has a size of <InlineMath math="3	\times100,000\times20 = 6 \times 10^7"/>. Since we need to calculate through the whole table, our program may require <InlineMath math="1 \times 10^8"/> computational steps and time complexity of <InlineMath math="O(kN)"/>. Since this time complexity is on the edge of TLE, we should use Java to solve this problem.</Paragraph>
 </Layout>
 );}
