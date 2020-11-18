@@ -2,8 +2,8 @@ import React from 'react';
 import '../App.css'
 import 'antd/dist/antd.css';
 import '../index.css';
-import {Layout, Typography, Image, Space} from 'antd';
-import {MailOutlined, ZhihuOutlined} from '@ant-design/icons';
+import {Layout, Typography, Image, Space, Button} from 'antd';
+import {MailOutlined, ZhihuOutlined, DownloadOutlined} from '@ant-design/icons';
 
 import failImage from '../PublicComponent/FailImage';
 
@@ -31,14 +31,12 @@ function AboutMe(){
             <Title level={4}>Yutian Chen</Title>
                 <MailOutlined/> <Text copyable>markchenyutian@gmail.com</Text>
                 <br></br>
-                ORCiD: <Text><Link href="https://orcid.org/0000-0001-8008-9014">https://orcid.org/0000-0001-8008-9014</Link></Text>
+                <ZhihuOutlined/>  Home Page: <Text><Link href="https://www.zhihu.com/people/mark-chenyutian">https://www.zhihu.com/people/mark-chenyutian</Link></Text>
                 <br></br>
-                <ZhihuOutlined/>  Home Page: <Text><Link href="https://www.zhihu.com/people/chen-yu-tian-48-79">https://www.zhihu.com/people/chen-yu-tian-48-79</Link></Text>
+                ORCiD: <Text><Link href="https://orcid.org/0000-0001-8008-9014">https://orcid.org/0000-0001-8008-9014</Link></Text>
             </Paragraph>
-
             </Space>
         </Layout>
-    );
-}
+    );}
 
 export default AboutMe;

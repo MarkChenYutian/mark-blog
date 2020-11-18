@@ -16,15 +16,14 @@ class MainAlertArea extends React.Component{
     state = {
         AlertList : [
             <Alert
-            message="Information"
-            description="This Site is under Active Construction"
-            type="info"
+            message="注意"
+            description="如果需要找我面谈 AP Computer Science A 期中考试，请先点击上面的按钮预约时间"
+            type="warning"
             showIcon
             />,
-
             <Alert
             message="Information"
-            description="You can access my blog at this url: https://markchenyutian.github.io/Markchen_Blog/"
+            description="You can access my blog (old version) at this url: https://markchenyutian.github.io/Markchen_Blog/"
             type="info"
             showIcon
             />
