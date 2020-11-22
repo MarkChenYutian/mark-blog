@@ -57,9 +57,8 @@ const MainContent = () => {
               <CalendarOutlined style={{ fontSize: '20px'}}/> Schedule a Meeting
             </Button>
 
-            <Divider orientation='left'>
-                Notice & Information
-            </Divider>
+            <Divider></Divider>
+            <Title level={2}>Notifications</Title>
             <MainAlertArea/>
 
           </div>
