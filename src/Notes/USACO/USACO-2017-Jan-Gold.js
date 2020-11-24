@@ -3,23 +3,19 @@ import '../../App.css';
 import 'moment/locale/zh-cn';
 import 'antd/dist/antd.css';
 import '../../index.css';
-import { Image, Layout, PageHeader, Typography, Space, Tag } from 'antd';
-import ReactMarkdown from 'react-markdown';
-import math from 'remark-math';
+import { Layout, Typography, Tag, Divider } from 'antd';
 import { InlineMath, BlockMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { lightfair } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import AppHeader from '../../PublicComponent/Header';
 import AppFooter from '../../PublicComponent/Footer';
-import FailImage from '../../PublicComponent/FailImage';
 import AppPageHeader from '../../PublicComponent/PageHeader';
 import { LinkOutlined } from '@ant-design/icons';
 
 const { Title, Text, Paragraph, Link } = Typography;
 const { Content } = Layout;
-const PhotoLink = process.env.PUBLIC_URL + '/Assets/';
-function USACO2017JanGoldAnalysis(props){
+function USACO2017JanGoldAnalysis(){
    window.scrollTo(0,0);
    return(
        <Layout>
@@ -37,7 +33,10 @@ function USACO2017JanGoldAnalysis(props){
 export default USACO2017JanGoldAnalysis;
 function PostContent(){
  return(<Layout style={{ backgroundColor: 'white', padding: '0'}}>
-<Title level={2}>USACO 2017 Jan Gold Analysis</Title>
+<div>
+    <Tag color="gold">Gold Division</Tag><Tag color="green">Ready</Tag>
+    <Divider></Divider>
+</div>
 <Title level={3}>Problem 1 Balanced Photo</Title>
 <Paragraph><a href="http://usaco.org/index.php?page=viewproblem2&cpid=693">Link to Problem</a></Paragraph>
 <Title level={4}>Problem Summary</Title>
@@ -103,5 +102,35 @@ If either <InlineMath math="n"/> or <InlineMath math="k"/> is out of bound (not 
 <Paragraph>After calculating through all the table, we should check all the elements in slice <InlineMath math="T[][N][]"/>. (the maximum win number may not require maximum number of change). The final result will be the maximum value of these <InlineMath math="3	imes k"/> values.</Paragraph>
 <Title level={4}>Time Complexity Analysis</Title>
 <Paragraph>Since we know that <InlineMath math="1\leq N\leq 100,000"/> and <InlineMath math="1\leq k\leq 20"/>, the 3D array we will construct has a size of <InlineMath math="3	\times100,000\times20 = 6 \times 10^7"/>. Since we need to calculate through the whole table, our program may require <InlineMath math="1 \times 10^8"/> computational steps and time complexity of <InlineMath math="O(kN)"/>. Since this time complexity is on the edge of TLE, we should use Java to solve this problem.</Paragraph>
+
+<Title level={3}>Problem 3. Cow Navigation</Title>
+<Paragraph><a href="http://usaco.org/index.php?page=viewproblem2&cpid=695">Link to Problem</a></Paragraph>
+<Title level={4}>Problem Summary</Title>
+<Paragraph>Bessie is in the barn of John. The barn has a size of <InlineMath math='N\times N'/>, and some of the square cells are impassable. Bessie starts in the lower-left corner (cell 1, 1) and wants to move to the right corner (cell N, N).</Paragraph>
+<Paragraph>In each second, Bessie can either <Text strong>go forward</Text>, <Text strong>turn left</Text>, or <Text strong>turn right</Text>. If one instruction let it enter an impassable square, it will skip through that instruction. At the beginning, Bessie doesn't know if she starts out facing up or facing left. You need to give the <Text strong>shortest sequence of directions</Text> that will guide her to the goal <Text strong>regardless of which case is true.</Text> Once she reaches the goal, she will ignore further commands.</Paragraph>
+<Title level={4}>Proposed Solution</Title>
+<Paragraph>The difficult point in this problem is that we don't know whether Bessie starts with which position and we have to make sure it can arrive at the destination. Since in each situation, the series of instructions used are the same, we can apply BFS on each situation simultaneously.</Paragraph>
+<Paragraph>In this BFS, each state will have two "sub-state", which represent the position and direction of Bessie when start pointing upward and pointing rightward. We can also apply dynamic programming on this problem - if a set of instruction can reach the same state with shorter length, we should use the shorter instruction series.</Paragraph>
+<Paragraph>We will construct a table with size <InlineMath math='N\times N \times 4 \times N \times N \times 4'/>. The first part <InlineMath math='N\times N \times 4'/> is the DP table for first sub-state. The second part of table is the DP-table for second sub-state.</Paragraph>
+<Paragraph>The update of DP table and state transition of BFS will follow these rules:</Paragraph>
+<ol>
+<li>
+<Paragraph><BlockMath math="
+   T[S_1, S_2] = \min{(T[S_1, S_2], T[S_1', S_2'] + 1)}
+   "/></Paragraph>
+</li>
+<li>
+<Paragraph><BlockMath math="
+   Update(S_1, S_2) = S_1, S_2' \text{ if } S_1 \text{ is at final state}
+   "/></Paragraph>
+</li>
+<li>
+<Paragraph><BlockMath math="
+   Update(S_1, S_2) = S_1',S_2 \text{ if the update will let } S_2 \text{ get into impassable square}
+   "/></Paragraph>
+</li>
+</ol>
+<Title level={4}>Time Complexity Analysis</Title>
+<Paragraph>Therefore, we will search through a graph with <InlineMath math='O(N^4)'/> nodes. (For each sub-state, there are <InlineMath math='N^2'/> nodes, though for most of the time, the sub-states has same position, the overall upper bound is <InlineMath math='O(N^4)'/>). Since <InlineMath math='0\leq N\leq 20'/>, the proposed solution will be fast enough.</Paragraph>
 </Layout>
 );}

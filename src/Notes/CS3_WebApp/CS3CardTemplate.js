@@ -4,7 +4,7 @@ import 'moment/locale/zh-cn';
 import 'antd/dist/antd.css';
 import '../../index.css';
 import { Link } from 'react-router-dom';
-import {Typography, Row, Col, Tag, Card, Space } from 'antd';
+import {Typography, Col, Card, Space } from 'antd';
 
 const {Text} = Typography;
 

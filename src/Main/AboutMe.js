@@ -2,8 +2,8 @@ import React from 'react';
 import '../App.css'
 import 'antd/dist/antd.css';
 import '../index.css';
-import {Layout, Typography, Image, Space, Button} from 'antd';
-import {MailOutlined, ZhihuOutlined, DownloadOutlined} from '@ant-design/icons';
+import {Layout, Typography, Image, Space} from 'antd';
+import {MailOutlined, ZhihuOutlined} from '@ant-design/icons';
 
 import failImage from '../PublicComponent/FailImage';
 

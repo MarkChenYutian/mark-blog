@@ -3,12 +3,11 @@ import '../../App.css';
 import 'moment/locale/zh-cn';
 import 'antd/dist/antd.css';
 import '../../index.css';
-import { Link } from 'react-router-dom';
-import { Layout, Typography, Row, Col, Tag, Card, Space } from 'antd';
+import { Layout, Typography, Row, Space } from 'antd';
 
 import CS3CardTemplate from './CS3CardTemplate'
 
-const {Title, Text} = Typography;
+const {Title} = Typography;
 
 function USACO_Cards(){
     return (
