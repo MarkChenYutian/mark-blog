@@ -11,6 +11,7 @@ import USACO2016DecGoldAnalysis from './Notes/USACO/USACO-2016-Dec-Gold';
 import USACO2017JanGoldAnalysis from './Notes/USACO/USACO-2017-Jan-Gold'; 
 
 import CS3Week8HW from './Notes/CS3_WebApp/Week8Homework';
+import CS3Week8Notes from './Notes/CS3_WebApp/CS3Week8Notes';
 
 import HowDoNeuralNetworkWork from './Posts/MyPosts/HowDoNeuralNetworkWork';
 import WhatIsLSTM from './Posts/MyPosts/WhatIsLSTM';
@@ -43,6 +44,7 @@ const BasicRoute = () => (
             <Route exact path="/notes/USACO/Gold/2017-Jan" component={USACO2017JanGoldAnalysis}/>
 
             <Route exact path="/notes/CS3/Week8/HW" component={CS3Week8HW}/>
+            <Route exact path="/notes/CS3/Week8/Notes" component={CS3Week8Notes}/>
         </Switch>
     </HashRouter>
 );

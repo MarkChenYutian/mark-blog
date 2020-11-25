@@ -6,23 +6,25 @@ import '../../index.css';
 import { Link } from 'react-router-dom';
 import {Typography, Col, Card, Space } from 'antd';
 
-const {Text} = Typography;
+const {Text, Title} = Typography;
+const PhotoLink = process.env.PUBLIC_URL;
 
 function CS3CardTemplate(props){
     return (
             <Col span={8}>
             <Card
-                title={props.title}
+                title={<Title level={5}>{props.title}</Title>}
                 bordered={false}
                 hoverable={true}
                 actions={[
                     <Link to={props.NotesURL}>Notes</Link>,
                     <Link to={props.HomeworkURL}>Homework</Link>
                 ]}
+                cover={<center><img src={`${PhotoLink}/logo192.png`} width={80} height={80}/></center>}
             >
             <Space direction="vertical" size="small">
             {props.tags}
-            <Text type='secondary'>
+            <Text>
                 {props.content}
             </Text>
             </Space>

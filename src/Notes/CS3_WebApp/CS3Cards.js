@@ -8,6 +8,8 @@ import { Layout, Typography, Row, Space } from 'antd';
 import CS3CardTemplate from './CS3CardTemplate'
 
 const {Title} = Typography;
+const PhotoLink = process.env.PUBLIC_URL + '/Assets/';
+
 
 function USACO_Cards(){
     return (
@@ -23,8 +25,9 @@ function USACO_Cards(){
             <CS3CardTemplate
                 title="Week 8"
                 content="Basic Usage of React"
-                NotesURL=""
+                NotesURL="notes/CS3/Week8/Notes"
                 HomeworkURL="notes/CS3/Week8/HW"
+                coverimg={`${PhotoLink}logo512.png`}
             />
 
             </Row>

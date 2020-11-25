@@ -39,8 +39,7 @@ function PostContent(){
 <Paragraph>上回（<a href="/#/posts/HowDoNeuralNetworkWork">神经网络是如何工作的</a>）中，我们提到模型的训练过程本质上就是通过调节模型参数使得模型输出的损失函数降低。由于神经网络的参数太多，我们几乎不可能求出损失函数极小值的解析解。为此，普遍使用的是数值计算的方法来减小损失函数的取值。这篇文章会介绍随机梯度下降 (Stochastic Gradient Descent, SGD)，RMS Prop, AdaGrad (Adaptive Gradient), 和 Adam(Adaptive Moment Estimation)这四种常简的梯度下降方法。</Paragraph>
 <Title level={3}>符号定义</Title>
 <Paragraph><InlineMath math="\eta"/> 学习速率</Paragraph>
-<Paragraph><InlineMath math="
-abla C"/> 损失函数梯度</Paragraph>
+<Paragraph><InlineMath math="\nabla C"/> 损失函数梯度</Paragraph>
 <Paragraph><InlineMath math="w"/>待优化参数</Paragraph>
 <Paragraph><InlineMath math="m_t"/> 损失函数梯度的一阶动量</Paragraph>
 <Paragraph><InlineMath math="v_t"/> 损失函数梯度的二阶动量</Paragraph>
