@@ -11,12 +11,9 @@ function USACOCards(){
     return (
         <Layout style={{ backgroundColor: 'white', padding: '0'}}>
             <Title level={3}>USACO Analysis</Title>
-            <div className="site-card-wrapper">
-            <Space
-                direction="vertical"
-                style={{width: "100%"}}
-            >
+
             <Title level={4}>2016</Title>
+            <div className="site-card-wrapper">
             <Row gutter={16}>
             <Col span={8}>
             <a href="#/notes/USACO/Gold/2016-Jan">
@@ -30,10 +27,7 @@ function USACOCards(){
                         <li>Lights Out</li>
                     </ol>
                 </Text>
-                </Space>
-                </Card>
-            </a>
-            </Col>
+                </Space></Card></a></Col>
             <Col span={8}>
             <a href="#/notes/USACO/Gold/2016-Feb">
                 <Card title="February" bordered={false} hoverable={true}>
@@ -46,10 +40,7 @@ function USACOCards(){
                         <li>Fenced In</li>
                     </ol>
                 </Text>
-                </Space>
-                </Card>
-            </a>
-            </Col>
+                </Space></Card></a></Col>
             <Col span={8}>
             <a href='#/notes/USACO/Gold/2016-Dec'>
                 <Card title="December" bordered={false} hoverable={true}>
@@ -62,16 +53,16 @@ function USACOCards(){
                         <li>Lasers and Mirrors</li>
                     </ol>
                 </Text>
-                </Space>
-                </Card>
-            </a>
-            </Col>
+                </Space></Card></a></Col>
             </Row>
+            </div>
 
             <Title level={4}>2017</Title>
-            <Row>
+
+            <div className="site-card-wrapper">
+            <Row gutter={16}>
             <Col span={8}>
-            <a href='#/notes/USACO/Gold/2017-Jan'>
+                <a href='#/notes/USACO/Gold/2017-Jan'>
                 <Card title="January" bordered={false} hoverable={true}>
                 <Space direction="vertical">
                 <Tag color="green">Available</Tag><Tag color="gold">Gold Division</Tag>
@@ -82,13 +73,19 @@ function USACOCards(){
                         <li>Cow Navigation</li>
                     </ol>
                 </Text>
-                </Space>
-                </Card>
-            </a>
-            </Col>
+                </Space></Card></a></Col>
+            <Col span={8}>
+                <a href='#/notes/USACO/Gold/2017-Feb'>
+                <Card title="January" bordered={false} hoverable={true}>
+                <Space direction="vertical">
+                <Tag color="volcano">Writing</Tag><Tag color="gold">Gold Division</Tag>
+                <Text type='secondary'>
+                    <ol>
+                        <li>Why did the Cow Cross the Road</li>
+                    </ol>
+                </Text>
+                </Space></Card></a></Col>
             </Row>
-            </Space>
-
             </div>
         </Layout>
     );
