@@ -101,6 +101,21 @@ const MainPost = () => {
                 excrept = "在实际生活中，我们常常需要计算一个给定 array 特定范围内所有数的和。如果只有这一个需求的话，我们可以很方便的构建出一个静态的数组来达到 O(1) 的时间复杂度，可是如果我们需要对 array 进行更新的话，就会需要 O(n) 的时间复杂度，相比之下BIT是一种可以快速求出区间和并支持对array进行修改的数据结构"
             />
 
+            <Divider orientation="left"><Title level={4}>Math Notes</Title></Divider>
+            <PostCard
+                Title="Linear Algebra Chapter 1 Notes"
+                Link="/posts/LinearAlgebraNote1"
+                TagList={[<Tag color='magenta'>Math</Tag>]}
+                excrept={
+                <ol>
+                    <p>Notes for Chapter 1, Introduction to Vectors of <em>Gilbert Strang - Introduction to Linear Algebra, 5th Edition</em></p>
+                    <li>Vectors and Linear Combination</li>
+                    <li>Lengths and Dot Product</li>
+                    <li>Matrices</li>
+                </ol>
+                }
+            />
+
             <Divider orientation="left"><Title level={4}>Others</Title></Divider>
             <PostCard
                 Title="Intro to Jupyter Notebook"
