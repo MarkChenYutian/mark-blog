@@ -20,6 +20,12 @@ class MainAlertArea extends React.Component{
                 message="New Column Computer Science 3 Notes & HW is online now"
                 description="Access 'Notes > CS3' section for notes and homework demo"
                 showIcon
+            />,
+            <Alert
+                type="success"
+                message="Notes of MIT Open Course Linear Algebra is Posted in Posts > Math"
+                description="Notes for Chapter 1 is available now."
+                showIcon
             />
         ]
     };

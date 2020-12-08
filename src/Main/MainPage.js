@@ -14,7 +14,6 @@ import MainAlertArea from './MainAlertArea';
 const {Content} = Layout;
 const {Title, Paragraph, Text} = Typography;
 
-
 const MainContent = () => {
     window.scrollTo(0,0);
     return (

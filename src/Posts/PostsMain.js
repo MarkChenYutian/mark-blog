@@ -112,8 +112,7 @@ const MainPost = () => {
                     <li>Vectors and Linear Combination</li>
                     <li>Lengths and Dot Product</li>
                     <li>Matrices</li>
-                </ol>
-                }
+                </ol>}
             />
 
             <Divider orientation="left"><Title level={4}>Others</Title></Divider>
