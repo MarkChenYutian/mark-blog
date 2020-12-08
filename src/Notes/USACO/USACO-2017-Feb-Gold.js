@@ -3,7 +3,7 @@ import '../../App.css';
 import 'moment/locale/zh-cn';
 import 'antd/dist/antd.css';
 import '../../index.css';
-import { Image, Layout, PageHeader, Typography, Space, Tag, Divider } from 'antd';
+import { Image, Layout, PageHeader, Typography, Space, Tag, Divider, Collapse } from 'antd';
 import ReactMarkdown from 'react-markdown';
 import math from 'remark-math';
 import { InlineMath, BlockMath } from 'react-katex';
@@ -15,6 +15,7 @@ import AppFooter from '../../PublicComponent/Footer';
 import FailImage from '../../PublicComponent/FailImage';
 import AppPageHeader from '../../PublicComponent/PageHeader';const { Title, Text, Paragraph } = Typography;
 const { Content } = Layout;
+const { Panel } = Collapse;
 const PhotoLink = process.env.PUBLIC_URL + '/Assets/';
 function USACO2017FebGoldAnalysis(props){
    window.scrollTo(0,0);
@@ -81,5 +82,161 @@ public ArrayList<State> StateTransition(State currState){
 <Paragraph>Since the time that UCS iterate is not bounded explicitly and there does not has an explicit relationship between data scale and number of iteration, it is hard to calculate accurate time complexity. Below, we will try to estimate an upper bound.</Paragraph>
 <Paragraph>First, there are <InlineMath math='N^2'/> vertexes in the graph, suppose each node is explored for <InlineMath math='N'/> time (which is an over-estimation), the time complexity of travel through the graph using UCS is <InlineMath math='O(N^3)'/>. Since each state is push and pop from a priority queue that is maintained using binary heap, the time complexity of push & pop one state is <InlineMath math='O(\log n)'/>. The overall time complexity should be less than <InlineMath math='O(N^3 \log(n))'/>.</Paragraph>
 <Paragraph>Since <InlineMath math='3\leq N\leq 100'/>, the time complexity of <InlineMath math='O(N^3 \log{n})'/> is acceptable.</Paragraph>
+
+<Collapse>
+    <Panel header="Sample Code for Problem 1 in Java">
+        
+<SyntaxHighlighter style={lightfair} language={'java'} children={`
+import java.util.*;
+import java.io.*;
+
+public class USACO2017FebGold1 {
+public static void main(String[] args) throws IOException{
+    BufferedReader br = new BufferedReader(new FileReader("visitfj.in"));
+    PrintWriter pr = new PrintWriter(new BufferedWriter(new FileWriter("visitfj.out")));
+
+    // Read N and T
+    StringTokenizer st = new StringTokenizer(br.readLine());
+    int N = Integer.parseInt(st.nextToken());
+    int T = Integer.parseInt(st.nextToken());
+
+    int[][] grid = new int[N][N];
+    int[][][] timeRec = new int[N][N][3];
+
+    for (int x = 0; x < N; x ++){
+        for (int y = 0; y < N; y ++){
+            for (int z = 0; z < 3; z ++){
+                timeRec[x][y][z] = Integer.MAX_VALUE;
+            }
+        }
+    }
+
+    for (int i = 0; i < N; i ++){
+        st = new StringTokenizer(br.readLine());
+        for (int j = 0; j < N; j ++){ grid[i][j] = Integer.parseInt(st.nextToken()); }
+    }
+
+    // Unified Cost Search
+    // int leastTimeResult = -1;
+    PriorityQueue<State> fringe = new PriorityQueue<>();
+    fringe.add(new State(0, 0, 0, 0));
+
+    while (!fringe.isEmpty()){
+        State currState = fringe.poll();
+        /*if (currState.getX() == N - 1 && currState.getY() == N - 1){
+            leastTimeResult = currState.getTime();
+            break; // currState is the first state at destination, and is the one that use least time
+            // STOP further searching
+        }*/
+
+        for (State nextState : getTransitionState(currState, N, T, grid)){
+            if (isBetterSolution(nextState, timeRec)){
+                fringe.add(nextState);
+                timeRec[nextState.getX()][nextState.getY()][nextState.getNum()%3] = nextState.getTime();
+            }
+        }
+    }
+
+    int leastTimeResult = Math.min(timeRec[N-1][N-1][0], timeRec[N-1][N-1][1]);
+    leastTimeResult = Math.min(leastTimeResult, timeRec[N-1][N-1][2]);
+
+    pr.println(leastTimeResult);
+
+
+    // Close Buffered Reader & Writer to prevent memory leak.
+    pr.close();
+    br.close();
+}
+
+public static boolean isBetterSolution(State nextState, int[][][] timeRec){
+    return (nextState.getTime() < timeRec[nextState.getX()][nextState.getY()][nextState.getNum()%3]);
+}
+
+public static ArrayList<State> getTransitionState(State currState, int N, int T, int[][] grid){
+    int currTime = currState.getTime(); int nextNum = currState.getNum() + 1;
+    int currX = currState.getX(); int currY = currState.getY();
+    ArrayList<String> validMoves = getValidMoves(currState, N);
+    ArrayList<State> result = new ArrayList<>();
+    for (String move : validMoves){
+        int nextTime = currTime;int nextX; int nextY;
+        switch (move) {
+            case "L":
+                nextX = currX - 1;nextY = currY;break;
+            case "R":
+                nextX = currX + 1;nextY = currY;break;
+            case "U":
+                nextX = currX;nextY = currY - 1;break;
+            default:
+                nextX = currX;nextY = currY + 1;break;
+        }
+
+        if (nextNum % 3 == 0) nextTime += grid[nextX][nextY];
+        nextTime += T;
+        result.add(new State(nextTime, nextNum, nextX, nextY));
+    }
+    return result;
+}
+
+public static ArrayList<String> getValidMoves(State currState, int N){
+    int x = currState.getX();
+    int y = currState.getY();
+    ArrayList<String> result = new ArrayList<>();
+    if (x - 1 >= 0) result.add("L");
+    if (x + 1 < N) result.add("R");
+    if (y - 1 >= 0) result.add("U");
+    if (y + 1 < N) result.add("D");
+    return result;
+}
+}
+
+class State implements Comparable<State>{
+private final int time;
+private final int num;
+private final int x;
+private final int y;
+
+public State(int time, int num, int x, int y) {
+    this.time = time;
+    this.num = num;
+    this.x = x;
+    this.y = y;
+}
+public int getTime() { return time; }
+public int getNum() { return num; }
+public int getX() { return x; }
+public int getY() { return y; }
+
+public int compareTo(State otherState){
+    return this.time - otherState.getTime();
+    //return (otherState.getX() * otherState.getY() - this.x * this.y);
+}
+
+@Override
+public String toString(){ return "( " + this.x + " " + this.y + " ), num" + this.num + ""; }
+
+@Override
+public int hashCode(){ return this.x * this.y; }
+
+@Override
+public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    State state = (State) o;
+    return x == state.x && y == state.y;
+}
+}`}/>
+    </Panel>
+</Collapse>
+<br/>
+<Title level={3}>Problem 2. Why Did the Cow Cross the Road II</Title>
+<Title level={4}>Problem Description</Title>
+<Paragraph>John have <InlineMath math='N'/> breeds of cows and <InlineMath math='N'/> pastures on both sides of the road separately. Now, all the cows will move from one side of road to the other side. Each breed has a specific ID. Only if the difference of two breed's IDs are smaller than 4, that two breeds will be "friendly" to each other.</Paragraph>
+<Paragraph>Given that each pasture can only have at most one link with another pasture on the other side of road and no links can cross over each other, what is the maximum number of links that can be draw between pastures?</Paragraph>
+<Title level={4}>Proposed Solution</Title>
+<Paragraph>In this problem, we are in fact finding out maximized number of valid pairs on both side of pasture. Suppose the last (right most link) between the pastures are <InlineMath math='(a, b)'/>, where <InlineMath math='a'/> represent the <InlineMath math='a^{th}'/> pasture on upper row and <InlineMath math='b'/> represent the <InlineMath math='b^{th}'/> pasture in the lower row. We can notice that the links that is on the left of <InlineMath math='(a, b)'/> will not affect the links on the right of <InlineMath math='(a, b)'/>.</Paragraph>
+<Paragraph>Therefore, we can use dynamic programming to solve this problem. Build up a table <InlineMath math='T'/> of size <InlineMath math='N\times N'/>, <InlineMath math='T[a][b]'/> represent the maximum number of links that can be build on the left of <InlineMath math='(a, b)'/>.</Paragraph>
+<Title level={4}>Time Complexity Analysis</Title>
+<Paragraph>The total time complexity of this solution is <InlineMath math='O(N^2)'/>. Since <InlineMath math='0\leq N \leq 1000'/>, the problem can be finished in 4 seconds.</Paragraph>
+
 </Layout>
 );}

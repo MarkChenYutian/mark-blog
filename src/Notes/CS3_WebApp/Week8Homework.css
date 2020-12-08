@@ -18,13 +18,13 @@ border: 1px solid #999;
 float: left;
 font-size: 24px;
 font-weight: bold;
-line-height: 34px;
-height: 34px;
+line-height: 45px;
+height: 50px;
 margin-right: -1px;
 margin-top: -1px;
 padding: 0;
 text-align: center;
-width: 34px;
+width: 50px;
 }
 
 .square:focus {
@@ -38,6 +38,10 @@ background: #ddd;
 .game {
 display: flex;
 flex-direction: row;
+margin-left: 15%;
+margin-right: 15%;
+margin-top: 50px;
+margin-bottom: 50px;
 }
 
 .game-info {

@@ -82,6 +82,7 @@ function USACOCards(){
                 <Text type='secondary'>
                     <ol>
                         <li>Why did the Cow Cross the Road</li>
+                        <li>Why did the Cow Cross the Road II</li>
                     </ol>
                 </Text>
                 </Space></Card></a></Col>
