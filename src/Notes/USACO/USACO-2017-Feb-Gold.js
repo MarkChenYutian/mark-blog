@@ -91,139 +91,139 @@ import java.util.*;
 import java.io.*;
 
 public class USACO2017FebGold1 {
-public static void main(String[] args) throws IOException{
-    BufferedReader br = new BufferedReader(new FileReader("visitfj.in"));
-    PrintWriter pr = new PrintWriter(new BufferedWriter(new FileWriter("visitfj.out")));
+    public static void main(String[] args) throws IOException{
+        BufferedReader br = new BufferedReader(new FileReader("visitfj.in"));
+        PrintWriter pr = new PrintWriter(new BufferedWriter(new FileWriter("visitfj.out")));
 
-    // Read N and T
-    StringTokenizer st = new StringTokenizer(br.readLine());
-    int N = Integer.parseInt(st.nextToken());
-    int T = Integer.parseInt(st.nextToken());
+        // Read N and T
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int N = Integer.parseInt(st.nextToken());
+        int T = Integer.parseInt(st.nextToken());
 
-    int[][] grid = new int[N][N];
-    int[][][] timeRec = new int[N][N][3];
+        int[][] grid = new int[N][N];
+        int[][][] timeRec = new int[N][N][3];
 
-    for (int x = 0; x < N; x ++){
-        for (int y = 0; y < N; y ++){
-            for (int z = 0; z < 3; z ++){
-                timeRec[x][y][z] = Integer.MAX_VALUE;
+        for (int x = 0; x < N; x ++){
+            for (int y = 0; y < N; y ++){
+                for (int z = 0; z < 3; z ++){
+                    timeRec[x][y][z] = Integer.MAX_VALUE;
+                }
             }
         }
-    }
 
-    for (int i = 0; i < N; i ++){
-        st = new StringTokenizer(br.readLine());
-        for (int j = 0; j < N; j ++){ grid[i][j] = Integer.parseInt(st.nextToken()); }
-    }
+        for (int i = 0; i < N; i ++){
+            st = new StringTokenizer(br.readLine());
+            for (int j = 0; j < N; j ++){ grid[i][j] = Integer.parseInt(st.nextToken()); }
+        }
 
-    // Unified Cost Search
-    // int leastTimeResult = -1;
-    PriorityQueue<State> fringe = new PriorityQueue<>();
-    fringe.add(new State(0, 0, 0, 0));
+        // Unified Cost Search
+        // int leastTimeResult = -1;
+        PriorityQueue<State> fringe = new PriorityQueue<>();
+        fringe.add(new State(0, 0, 0, 0));
 
-    while (!fringe.isEmpty()){
-        State currState = fringe.poll();
-        /*if (currState.getX() == N - 1 && currState.getY() == N - 1){
-            leastTimeResult = currState.getTime();
-            break; // currState is the first state at destination, and is the one that use least time
-            // STOP further searching
-        }*/
+        while (!fringe.isEmpty()){
+            State currState = fringe.poll();
+            /*if (currState.getX() == N - 1 && currState.getY() == N - 1){
+                leastTimeResult = currState.getTime();
+                break; // currState is the first state at destination, and is the one that use least time
+                // STOP further searching
+            }*/
 
-        for (State nextState : getTransitionState(currState, N, T, grid)){
-            if (isBetterSolution(nextState, timeRec)){
-                fringe.add(nextState);
-                timeRec[nextState.getX()][nextState.getY()][nextState.getNum()%3] = nextState.getTime();
+            for (State nextState : getTransitionState(currState, N, T, grid)){
+                if (isBetterSolution(nextState, timeRec)){
+                    fringe.add(nextState);
+                    timeRec[nextState.getX()][nextState.getY()][nextState.getNum()%3] = nextState.getTime();
+                }
             }
         }
+
+        int leastTimeResult = Math.min(timeRec[N-1][N-1][0], timeRec[N-1][N-1][1]);
+        leastTimeResult = Math.min(leastTimeResult, timeRec[N-1][N-1][2]);
+
+        pr.println(leastTimeResult);
+
+
+        // Close Buffered Reader & Writer to prevent memory leak.
+        pr.close();
+        br.close();
     }
 
-    int leastTimeResult = Math.min(timeRec[N-1][N-1][0], timeRec[N-1][N-1][1]);
-    leastTimeResult = Math.min(leastTimeResult, timeRec[N-1][N-1][2]);
+    public static boolean isBetterSolution(State nextState, int[][][] timeRec){
+        return (nextState.getTime() < timeRec[nextState.getX()][nextState.getY()][nextState.getNum()%3]);
+    }
 
-    pr.println(leastTimeResult);
+    public static ArrayList<State> getTransitionState(State currState, int N, int T, int[][] grid){
+        int currTime = currState.getTime(); int nextNum = currState.getNum() + 1;
+        int currX = currState.getX(); int currY = currState.getY();
+        ArrayList<String> validMoves = getValidMoves(currState, N);
+        ArrayList<State> result = new ArrayList<>();
+        for (String move : validMoves){
+            int nextTime = currTime;int nextX; int nextY;
+            switch (move) {
+                case "L":
+                    nextX = currX - 1;nextY = currY;break;
+                case "R":
+                    nextX = currX + 1;nextY = currY;break;
+                case "U":
+                    nextX = currX;nextY = currY - 1;break;
+                default:
+                    nextX = currX;nextY = currY + 1;break;
+            }
 
-
-    // Close Buffered Reader & Writer to prevent memory leak.
-    pr.close();
-    br.close();
-}
-
-public static boolean isBetterSolution(State nextState, int[][][] timeRec){
-    return (nextState.getTime() < timeRec[nextState.getX()][nextState.getY()][nextState.getNum()%3]);
-}
-
-public static ArrayList<State> getTransitionState(State currState, int N, int T, int[][] grid){
-    int currTime = currState.getTime(); int nextNum = currState.getNum() + 1;
-    int currX = currState.getX(); int currY = currState.getY();
-    ArrayList<String> validMoves = getValidMoves(currState, N);
-    ArrayList<State> result = new ArrayList<>();
-    for (String move : validMoves){
-        int nextTime = currTime;int nextX; int nextY;
-        switch (move) {
-            case "L":
-                nextX = currX - 1;nextY = currY;break;
-            case "R":
-                nextX = currX + 1;nextY = currY;break;
-            case "U":
-                nextX = currX;nextY = currY - 1;break;
-            default:
-                nextX = currX;nextY = currY + 1;break;
+            if (nextNum % 3 == 0) nextTime += grid[nextX][nextY];
+            nextTime += T;
+            result.add(new State(nextTime, nextNum, nextX, nextY));
         }
-
-        if (nextNum % 3 == 0) nextTime += grid[nextX][nextY];
-        nextTime += T;
-        result.add(new State(nextTime, nextNum, nextX, nextY));
+        return result;
     }
-    return result;
-}
 
-public static ArrayList<String> getValidMoves(State currState, int N){
-    int x = currState.getX();
-    int y = currState.getY();
-    ArrayList<String> result = new ArrayList<>();
-    if (x - 1 >= 0) result.add("L");
-    if (x + 1 < N) result.add("R");
-    if (y - 1 >= 0) result.add("U");
-    if (y + 1 < N) result.add("D");
-    return result;
-}
+    public static ArrayList<String> getValidMoves(State currState, int N){
+        int x = currState.getX();
+        int y = currState.getY();
+        ArrayList<String> result = new ArrayList<>();
+        if (x - 1 >= 0) result.add("L");
+        if (x + 1 < N) result.add("R");
+        if (y - 1 >= 0) result.add("U");
+        if (y + 1 < N) result.add("D");
+        return result;
+    }
 }
 
 class State implements Comparable<State>{
-private final int time;
-private final int num;
-private final int x;
-private final int y;
+    private final int time;
+    private final int num;
+    private final int x;
+    private final int y;
 
-public State(int time, int num, int x, int y) {
-    this.time = time;
-    this.num = num;
-    this.x = x;
-    this.y = y;
-}
-public int getTime() { return time; }
-public int getNum() { return num; }
-public int getX() { return x; }
-public int getY() { return y; }
+    public State(int time, int num, int x, int y) {
+        this.time = time;
+        this.num = num;
+        this.x = x;
+        this.y = y;
+    }
+    public int getTime() { return time; }
+    public int getNum() { return num; }
+    public int getX() { return x; }
+    public int getY() { return y; }
 
-public int compareTo(State otherState){
-    return this.time - otherState.getTime();
-    //return (otherState.getX() * otherState.getY() - this.x * this.y);
-}
+    public int compareTo(State otherState){
+        return this.time - otherState.getTime();
+        //return (otherState.getX() * otherState.getY() - this.x * this.y);
+    }
 
-@Override
-public String toString(){ return "( " + this.x + " " + this.y + " ), num" + this.num + ""; }
+    @Override
+    public String toString(){ return "( " + this.x + " " + this.y + " ), num" + this.num + ""; }
 
-@Override
-public int hashCode(){ return this.x * this.y; }
+    @Override
+    public int hashCode(){ return this.x * this.y; }
 
-@Override
-public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    State state = (State) o;
-    return x == state.x && y == state.y;
-}
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        State state = (State) o;
+        return x == state.x && y == state.y;
+    }
 }`}/>
     </Panel>
 </Collapse>
@@ -237,6 +237,6 @@ public boolean equals(Object o) {
 <Paragraph>Therefore, we can use dynamic programming to solve this problem. Build up a table <InlineMath math='T'/> of size <InlineMath math='N\times N'/>, <InlineMath math='T[a][b]'/> represent the maximum number of links that can be build on the left of <InlineMath math='(a, b)'/>.</Paragraph>
 <Title level={4}>Time Complexity Analysis</Title>
 <Paragraph>The total time complexity of this solution is <InlineMath math='O(N^2)'/>. Since <InlineMath math='0\leq N \leq 1000'/>, the problem can be finished in 4 seconds.</Paragraph>
-
+<br/>
 </Layout>
 );}
