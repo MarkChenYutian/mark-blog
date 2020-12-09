@@ -35,6 +35,10 @@ function USACO2017FebGoldAnalysis(props){
 export default USACO2017FebGoldAnalysis;
 function PostContent(){
  return(<Layout style={{ backgroundColor: 'white', padding: '0'}}>
+<div>
+    <Tag color="gold">Gold Division</Tag><Tag color="green">Ready</Tag>
+    <Divider></Divider>
+</div>
 <Title level={3}>Problem 1. Why did the Cow Cross the Road</Title>
 <Title level={4}>Problem Description</Title>
 <Paragraph>Bessie the cow wants to move from the upper-left corner of field to the bottom-right corner of field. Each time it goes from one grid to the other, <em><InlineMath math='T'/> unit</em> of time will be consumed. Each time Bessie pass through 3 grids, she will stop at the grid and begin eating. The time of eating in each grid is different and will be provided in the input.</Paragraph>
@@ -82,6 +86,8 @@ public ArrayList<State> StateTransition(State currState){
 <Paragraph>Since the time that UCS iterate is not bounded explicitly and there does not has an explicit relationship between data scale and number of iteration, it is hard to calculate accurate time complexity. Below, we will try to estimate an upper bound.</Paragraph>
 <Paragraph>First, there are <InlineMath math='N^2'/> vertexes in the graph, suppose each node is explored for <InlineMath math='N'/> time (which is an over-estimation), the time complexity of travel through the graph using UCS is <InlineMath math='O(N^3)'/>. Since each state is push and pop from a priority queue that is maintained using binary heap, the time complexity of push & pop one state is <InlineMath math='O(\log n)'/>. The overall time complexity should be less than <InlineMath math='O(N^3 \log(n))'/>.</Paragraph>
 <Paragraph>Since <InlineMath math='3\leq N\leq 100'/>, the time complexity of <InlineMath math='O(N^3 \log{n})'/> is acceptable.</Paragraph>
+
+<Paragraph><center><Image alt="image-20201209111059796" src={`${PhotoLink}USACO2017GoldP1.png`} width='50%' style={{minWidth: '250px'}} fallback={FailImage} /></center></Paragraph>
 
 <Collapse>
     <Panel header="Sample Code for Problem 1 in Java">
@@ -238,5 +244,63 @@ class State implements Comparable<State>{
 <Title level={4}>Time Complexity Analysis</Title>
 <Paragraph>The total time complexity of this solution is <InlineMath math='O(N^2)'/>. Since <InlineMath math='0\leq N \leq 1000'/>, the problem can be finished in 4 seconds.</Paragraph>
 <br/>
+<Title level={3}>Problem 3. Why Did the Cow Cross the Road III</Title>
+<Title level={4}>Problem Description</Title>
+<Paragraph>The pasture of John's farm is circular and there are <InlineMath math='2N'/> points to get in / out of the pasture. Everyday, <InlineMath math='N'/> cows will go in and out from different door and every door is only used by one cow once (either in / out). Now, John have collected all the in & out doors of the cows. He wants to know the number pairs that will "cross over". </Paragraph>
+<Paragraph type="secondary">
+<Paragraph>For instance, if a cow get in from <InlineMath math='1'/> and get out from <InlineMath math='3'/> while the other cow get in from <InlineMath math='2'/> and out of <InlineMath math='4'/>, they will "cross over".</Paragraph>
+</Paragraph>
+<Title level={4}>Proposed Solution</Title>
+<Paragraph>We can use a <a href="https://markyutianchen.gitee.io/react-app-test/#/posts/BinaryIndexTree">Binary Index Tree</a> here to solve the problem.</Paragraph>
+<Paragraph>First, we will construct a Binary Index Tree with length <InlineMath math='2N'/> and initialized with 0. Then, we will loop on the possible in/out gates. When we have passed through one point, we should do these things:</Paragraph>
+<ol>
+<li>Check if we have passed through a point that belongs to same breed before</li>
+<li>If yes, update the Binary Index tree to change both current index and the position of previous gate of same breed to 0. Calculate the sum of BIT in range <InlineMath math='(\text{previous gate}, \text{current gate})'/>.</li>
+<li>If not, update the Binary Index tree to change value on current index from 0 to 1.</li>
+</ol>
+<Paragraph><center><Image alt="image-20201209111059796" src={`${PhotoLink}USACO2017GoldP3.png`} width='50%' style={{minWidth: '250px'}} fallback={FailImage} /></center></Paragraph>
+<Collapse>
+<Panel header="Sample Code for Problem 3 in Java">
+<SyntaxHighlighter style={lightfair} language={'java'} children={`
+import java.io.*;
+import java.util.*;
+
+public class USACO2017FebGold3 {
+    public static void main(String[] args) throws IOException{
+        BufferedReader br = new BufferedReader(new FileReader("circlecross.in"));
+        PrintWriter pr = new PrintWriter(new FileWriter("circlecross.out"));
+
+        int N = Integer.parseInt(br.readLine());
+        int[] cowInfo = new int[2 * N];
+        for (int i = 0; i < N * 2; i ++){ cowInfo[i] = Integer.parseInt(br.readLine()); }
+
+        HashMap<Integer, Integer> positionRec = new HashMap<>();
+        BIT rec = new BIT(new int[2 * N]);
+        int result = 0;
+
+        for (int i = 0; i < N * 2; i ++){
+            int breed = cowInfo[i];
+            if (positionRec.keySet().contains(breed)){
+                rec.updatePoint(positionRec.get(breed), 0);
+                result += rec.getSum(positionRec.get(breed), i);
+            }
+            else{
+                positionRec.put(breed, i);
+                rec.updatePoint(i, 1);
+            }
+        }
+
+        pr.println(result);
+
+        br.close();
+        pr.close();
+    }
+}
+`}/>
+</Panel>
+</Collapse>
+<Title level={4}>Time Complexity Analysis</Title>
+<Paragraph>Since the update and calculation of range sum on BIT only have a time complexity of <InlineMath math='O(\log{n})'/> , the over all time complexity will be <InlineMath math='O(n\log{n})'/>.</Paragraph>
+<Paragraph>Since <InlineMath math='1\leq n \leq 50000'/>, this time complexity is acceptable.</Paragraph>
 </Layout>
 );}

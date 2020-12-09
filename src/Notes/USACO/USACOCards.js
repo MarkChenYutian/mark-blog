@@ -78,11 +78,12 @@ function USACOCards(){
                 <a href='#/notes/USACO/Gold/2017-Feb'>
                 <Card title="January" bordered={false} hoverable={true}>
                 <Space direction="vertical">
-                <Tag color="volcano">Writing</Tag><Tag color="gold">Gold Division</Tag>
+                <Tag color="green">Available</Tag><Tag color="gold">Gold Division</Tag>
                 <Text type='secondary'>
                     <ol>
                         <li>Why did the Cow Cross the Road</li>
                         <li>Why did the Cow Cross the Road II</li>
+                        <li>Why did the Cow Cross the Road III</li>
                     </ol>
                 </Text>
                 </Space></Card></a></Col>
