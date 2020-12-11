@@ -26,6 +26,7 @@ import GradientDescentMethods from './Posts/MyPosts/GradientDescentMethods';
 import TimeComplexityIntro from './Posts/MyPosts/TimeComplexityIntro';
 import IntroToJupyterNotebook from './Posts/MyPosts/IntroToJupyter';
 import BinaryIndexTree from './Posts/MyPosts/BinaryIndexTree';
+import ConstraintSatisfactionProblem from './Posts/MyPosts/ConstraintSatisfactionProblem';
 import LinearAlgebraSection1 from './Posts/MyPosts/LinearAlgebraSec1';
 
 const BasicRoute = () => (
@@ -44,6 +45,7 @@ const BasicRoute = () => (
             <Route exact path="/posts/IntroToJupyterNotebook" component={IntroToJupyterNotebook}/>
             <Route exact path="/posts/BinaryIndexTree" component={BinaryIndexTree}/>
             <Route exact path="/posts/LinearAlgebraNote1" component={LinearAlgebraSection1}/>
+            <Route exact path="/posts/ConstraintSatisfactionProblem" component={ConstraintSatisfactionProblem}/>
 
             <Route exact path="/notes/USACO/Gold/2016-Jan" component={USACO2016JanGoldAnalysis}/>
             <Route exact path="/notes/USACO/Gold/2016-Feb" component={USACO2016FebGoldAnalysis}/>
