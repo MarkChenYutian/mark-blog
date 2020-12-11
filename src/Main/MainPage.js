@@ -29,8 +29,6 @@ const MainContent = () => {
           <div className="site-layout-background" style={{ padding: 16 }}>
             <AboutMe/>
 
-            <Divider></Divider>
-
             <Title level={2}>About This Site</Title>
 
             <Paragraph>Currently, I'm transfering the posts from previous HTML blog to this new React Blog. Here are tips for visitors:</Paragraph>
@@ -49,13 +47,11 @@ const MainContent = () => {
             </Button>
             </Space>
             </Space>
-            <Divider></Divider>
             <Title level={2}>Schedule Meeting</Title>
             <Paragraph>If you want to meet me for <Text type="warning">AP Computer Science A problems</Text> and <Text type="warning">CS & Math related competitions</Text>, etc. or has interesting thought that wants to share, please schedule a period of time on calendly.</Paragraph>
             <Button type="primary" href="https://calendly.com/markchenyutian" disabled={false}>
               <CalendarOutlined style={{ fontSize: '20px'}}/> Schedule a Meeting
             </Button>
-            <Divider></Divider>
             <Title level={2}>Notifications</Title>
             <MainAlertArea/>
 

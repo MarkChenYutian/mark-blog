@@ -10,10 +10,10 @@ import { InlineMath, BlockMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { lightfair } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import AppHeader from '../../PublicComponent/Header';
-import AppFooter from '../../PublicComponent/Footer';
-import FailImage from '../../PublicComponent/FailImage';
-import AppPageHeader from '../../PublicComponent/PageHeader';const { Title, Text, Paragraph } = Typography;
+import AppHeader from '../src/PublicComponent/Header';
+import AppFooter from '../src/PublicComponent/Footer';
+import FailImage from '../src/PublicComponent/FailImage';
+import AppPageHeader from '../src/PublicComponent/PageHeader';const { Title, Text, Paragraph } = Typography;
 const { Content } = Layout;
 const PhotoLink = process.env.PUBLIC_URL + '/Assets/';
 function EllipticalCurveSignature(props){

@@ -5,8 +5,9 @@ import 'antd/dist/antd.css';
 import '../../index.css';
 import { Link } from 'react-router-dom';
 import {Typography, Col, Card, Space } from 'antd';
+import { OmitProps } from 'antd/lib/transfer/ListBody';
 
-const {Text, Title} = Typography;
+const {Title, Paragraph} = Typography;
 const PhotoLink = process.env.PUBLIC_URL;
 
 function CS3CardTemplate(props){
@@ -20,13 +21,16 @@ function CS3CardTemplate(props){
                     <Link to={props.NotesURL}>Notes</Link>,
                     <Link to={props.HomeworkURL}>Homework</Link>
                 ]}
-                cover={<center><img src={`${PhotoLink}/logo192.png`} width={80} height={80}/></center>}
+                cover={<center><img src={props.coverimg} width={80} height={80}/></center>}
             >
             <Space direction="vertical" size="small">
             {props.tags}
-            <Text>
+            <Paragraph ellipsis={{
+            rows: 2,
+            expandable: true,
+            }}>
                 {props.content}
-            </Text>
+            </Paragraph>
             </Space>
             </Card>
             </Col>
