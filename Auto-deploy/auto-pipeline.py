@@ -15,7 +15,9 @@ for md_path in new_md_files:
     try:
         module_name = input("React Component Name for thie file: ")
         title_name = input("Title show on page header: ")
+        print("\n")
     except:
+        print("\n")
         continue
     
     jsx_result = write_JSX(module_name, title_name, md_path)
@@ -29,8 +31,13 @@ md_detector.updateCache()
 new_html_files = html_detector()
 for html_path in new_html_files:
     print("Processing file {}.".format(html_path))
-    module_name = input("React Component Name for thie file: ")
-    title_name = input("Title show on page header: ")
+    try:
+        module_name = input("React Component Name for thie file: ")
+        title_name = input("Title show on page header: ")
+        print("\n")
+    except:
+        print("\n")
+        continue
 
     jsx_result = html_to_React(module_name, title_name, html_path)
 

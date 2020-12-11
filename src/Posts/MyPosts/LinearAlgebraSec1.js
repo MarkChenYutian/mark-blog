@@ -3,7 +3,7 @@ import '../../App.css';
 import 'moment/locale/zh-cn';
 import 'antd/dist/antd.css';
 import '../../index.css';
-import './TyporaGithub.css'
+import '../../PublicComponent/TyporaGithub.css'
 import { Layout } from 'antd';
 import 'katex/dist/katex.min.css';
 import AppHeader from '../../PublicComponent/Header';

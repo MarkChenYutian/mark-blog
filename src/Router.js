@@ -13,6 +13,10 @@ import USACO2017FebGoldAnalysis from './Notes/USACO/USACO-2017-Feb-Gold';
 
 import CS3Week8HW from './Notes/CS3_WebApp/Week8Homework';
 import CS3Week8Notes from './Notes/CS3_WebApp/CS3Week8Notes';
+import CS3NotesWeek1 from './Notes/CS3_WebApp/CS3NotesWeek1';
+import CS3NotesWeek2 from './Notes/CS3_WebApp/CS3NotesWeek2';
+import CS3NotesWeek3 from './Notes/CS3_WebApp/CS3NotesWeek3';
+import CS3NotesWeek5 from './Notes/CS3_WebApp/CS3NotesWeek5';
 
 import HowDoNeuralNetworkWork from './Posts/MyPosts/HowDoNeuralNetworkWork';
 import WhatIsLSTM from './Posts/MyPosts/WhatIsLSTM';
@@ -49,6 +53,10 @@ const BasicRoute = () => (
 
             <Route exact path="/notes/CS3/Week8/HW" component={CS3Week8HW}/>
             <Route exact path="/notes/CS3/Week8/Notes" component={CS3Week8Notes}/>
+            <Route exact path="/notes/CS3/Week5/Notes" component={CS3NotesWeek5}/>
+            <Route exact path="/notes/CS3/Week3/Notes" component={CS3NotesWeek3}/>
+            <Route exact path="/notes/CS3/Week2/Notes" component={CS3NotesWeek2}/>
+            <Route exact path="/notes/CS3/Week1/Notes" component={CS3NotesWeek1}/>
         </Switch>
     </HashRouter>
 );

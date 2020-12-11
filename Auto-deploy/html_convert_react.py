@@ -1,3 +1,10 @@
+import regex as re
+
+def removeStyle(htmlString):
+    pattern = r"<style type='text/css'>.*?</style>"
+    result = re.search(pattern, htmlString, re.S).group(0)
+    return htmlString.replace(result, "")
+
 def html_to_React(ProjectName, TitleName, filePath):
     JSX_File_Import = [
         "import React from 'react';",
