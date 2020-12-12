@@ -3,16 +3,17 @@ import '../../App.css';
 import 'moment/locale/zh-cn';
 import 'antd/dist/antd.css';
 import '../../index.css';
-import { Button, Select, Space, Tag } from 'antd';
+import { Button, Divider, Select, Space, Tag } from 'antd';
 
 class TagSearchBox extends React.Component{
     render(){
         return (
             <Select
-                mode='multiple'
-                style={{width: '100%'}}
+                mode='tags'
+                style={{width: "100%"}}
                 placeholder="Select tags to filter posts"
                 allowClear={true}
+                size='large'
                 onChange={(value, option) => this.props.changeHandle(option)}
             >
                 <Option value="Neural Network"><Tag color="blue">Neural Network</Tag></Option>

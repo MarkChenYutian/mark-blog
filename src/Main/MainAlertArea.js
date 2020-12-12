@@ -17,8 +17,8 @@ class MainAlertArea extends React.Component{
         AlertList : [
             <Alert
                 type="success"
-                message="New Column Computer Science 3 Notes & HW is online now"
-                description="Access 'Notes > CS3' section for notes and homework demo"
+                message="The tag filter feature is online now."
+                description="You can use the search bar on Home / Posts to filter the posts you want to find now."
                 showIcon
             />,
             <Alert
