@@ -3,24 +3,18 @@ import '../App.css';
 import 'moment/locale/zh-cn';
 import 'antd/dist/antd.css';
 import '../index.css';
-import { Layout, Breadcrumb, Typography, Space, Alert, Tag, Divider, Button } from 'antd';
+import { Layout, Breadcrumb, Typography, Space, Alert, Tag, Divider, Empty } from 'antd';
 
 import TagSearchBox from './SearchSys/SearchBox';
 
 import AppHeader from '../PublicComponent/Header';
 import AppFooter from '../PublicComponent/Footer';
 import PostCard from '../PublicComponent/PostCard';
-import Search from 'antd/lib/input/Search';
 
 const {Content} = Layout;
 const {Title} = Typography;
 
-class MainPost extends React.Component{
-    constructor(props){
-        super(props)
-        this.state = {
-            searchKeys: [],
-            allPosts: [
+const allPosts = [
                 {
                     isPost: false,
                     tags: [],
@@ -152,40 +146,13 @@ class MainPost extends React.Component{
                     excrept="本文讲述了如何从安装 Python 到使用 Jupyter Notebook 进行基本的numpy 与 matplotlib 操作"
                     />
                 }
-            ],
-            showPosts: [
-
             ]
-        }
-        this.getShowPosts();
-    }
 
-    getShowPosts(){
-        let newShowPosts = Array();
-        if (this.state.searchKeys.length !== 0){
-            for (let i = 0; i < this.state.allPosts.length; i ++){
-                if (this.state.allPosts[i]['isPost']){
-                    for (let j = 0; j < this.state.searchKeys.length; j ++){
-                        console.log(this.state.searchKeys[j]);
-                        if (this.state.allPosts[i]['tags'].includes(this.state.searchKeys[j])){
-                            newShowPosts.push(this.state.allPosts[i]['jsx_obj']);
-                            break;
-                        }
-                    }
-                }
-            }
-
-            this.setState({
-                showPosts: newShowPosts
-            });
-        }
-        else{
-            for (let i = 0; i < this.state.allPosts.length; i ++){
-                newShowPosts.push(this.state.allPosts[i]['jsx_obj']);
-            }
-            this.setState({
-                showPosts: newShowPosts
-            });
+class MainPost extends React.Component{
+    constructor(props){
+        super(props)
+        this.state = {
+            searchKeys: [],
         }
     }
 
@@ -200,6 +167,29 @@ class MainPost extends React.Component{
     }
 
     render(){
+
+        let showPosts = Array();
+        if (this.state.searchKeys.length !== 0){
+            for (let i = 0; i < allPosts.length; i ++){
+                if (allPosts[i]['isPost']){
+                    let inc = true;
+                    for (let j = 0; j < this.state.searchKeys.length; j ++){
+                        inc = inc && allPosts[i]['tags'].includes(this.state.searchKeys[j]);
+                    }
+                    if (inc){showPosts.push(allPosts[i]['jsx_obj']);}
+                }
+            }
+
+        }
+        else{
+            for (let i = 0; i < allPosts.length; i ++){
+                showPosts.push(allPosts[i]['jsx_obj']);
+            }
+        }
+
+        if (showPosts.length === 0){
+            showPosts.push(<Empty description="No Result Found"/>)
+        }
         
         return(
             <Layout>
@@ -217,8 +207,6 @@ class MainPost extends React.Component{
                 <Space direction="vertical" size="middle" style={{ width: "100%" }}>
                 
                 <TagSearchBox changeHandle={(value) => this.showSearchValue(value)}/>
-
-                <Button onClick={() => this.getShowPosts()} type='primary'>Search</Button>
     
                 <Alert
                     message="Warning"
@@ -236,7 +224,7 @@ class MainPost extends React.Component{
                     closable
                 />
 
-                {this.state.showPosts}
+                {showPosts}
 
                 </Space>
               </div>
