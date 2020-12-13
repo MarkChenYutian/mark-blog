@@ -85,13 +85,6 @@ class MainPost extends React.Component{
                 <TagSearchBox changeHandle={(value) => this.updateSearch(value)}/>
 
                 <Divider></Divider>
-                <Alert
-                    message="Warning"
-                    description="For Better Experience, it is recommended to use PC to access this React App since using window with small width may lead to content overflow."
-                    type="warning"
-                    showIcon
-                    closable
-                />
 
                 {showPosts}
 

@@ -89,7 +89,7 @@ public ArrayList<State> StateTransition(State currState){
 
 <Paragraph><center><Image alt="image-20201209111059796" src={`${PhotoLink}USACO2017GoldP1.png`} width='50%' style={{minWidth: '250px'}} fallback={FailImage} /></center></Paragraph>
 
-<Collapse>
+<Collapse ghost>
     <Panel header="Sample Code for Problem 1 in Java">
         
 <SyntaxHighlighter style={lightfair} language={'java'} children={`
@@ -259,7 +259,7 @@ class State implements Comparable<State>{
 <li>If not, update the Binary Index tree to change value on current index from 0 to 1.</li>
 </ol>
 <Paragraph><center><Image alt="image-20201209111059796" src={`${PhotoLink}USACO2017GoldP3.png`} width='50%' style={{minWidth: '250px'}} fallback={FailImage} /></center></Paragraph>
-<Collapse>
+<Collapse ghost>
 <Panel header="Sample Code for Problem 3 in Java">
 <SyntaxHighlighter style={lightfair} language={'java'} children={`
 import java.io.*;
