@@ -92,22 +92,22 @@ const allPosts = [
     },
     {
         isPost: true,
-        tags: ["Algorithms"],
-        jsx_obj: <PostCard
-        Title="Introduction to Binary Index Tree"
-        Link="/posts/BinaryIndexTree"
-        TagList = {[<Tag color='cyan'>Algorithms</Tag>]}
-        excrept = "在实际生活中，我们常常需要计算一个给定 array 特定范围内所有数的和。如果只有这一个需求的话，我们可以很方便的构建出一个静态的数组来达到 O(1) 的时间复杂度，可是如果我们需要对 array 进行更新的话，就会需要 O(n) 的时间复杂度，相比之下BIT是一种可以快速求出区间和并支持对array进行修改的数据结构"
-        />
-    },
-    {
-        isPost: true,
         tags: ["Algorithms", "Math"],
         jsx_obj:<PostCard
         Title="Introduction to Elliptical Curve Signature"
         Link="/posts/EllipticalCurveSignature"
         TagList={[<Tag color='cyan'>Algorithms</Tag>,<Tag color='magenta'>Math</Tag>]}
         excrept="在传统的金融模型中，当人们需要在银行等金融机构中创建新的账户时，人们必须提供用于证明其身份的凭证（身份证，护照，etc）。然而，在比特币的新型隐私模型中，虽然每个账户之间的交易记录是公开的，但是账户拥有者的身份确不会被公开。为了防止比特币账户被冒用，比特币交易系统中使用了椭圆曲线签名的机制来确保账户操作者就是账户拥有者。"
+        />
+    },
+    {
+        isPost: true,
+        tags: ["Algorithms"],
+        jsx_obj: <PostCard
+        Title="Introduction to Binary Index Tree"
+        Link="/posts/BinaryIndexTree"
+        TagList = {[<Tag color='cyan'>Algorithms</Tag>]}
+        excrept = "在实际生活中，我们常常需要计算一个给定 array 特定范围内所有数的和。如果只有这一个需求的话，我们可以很方便的构建出一个静态的数组来达到 O(1) 的时间复杂度，可是如果我们需要对 array 进行更新的话，就会需要 O(n) 的时间复杂度，相比之下BIT是一种可以快速求出区间和并支持对array进行修改的数据结构"
         />
     },
     {
@@ -128,6 +128,22 @@ const allPosts = [
             <li>Vectors and Linear Combination</li>
             <li>Lengths and Dot Product</li>
             <li>Matrices</li>
+        </ol>}
+        />
+    },
+    {
+        isPost: true,
+        tags: ["Math"],
+        jsx_obj: <PostCard
+        Title="Linear Algebra Chapter 2 Notes"
+        Link="/posts/LinearAlgebraNote2"
+        TagList={[<Tag color='magenta'>Math</Tag>]}
+        excrept={
+        <ol>
+            <p>Notes for Chapter 2, Introduction to Vectors of <em>Gilbert Strang - Introduction to Linear Algebra, 5th Edition</em></p>
+            <li>Vectors and Linear Equations</li>
+            <li>Elimination using Matrices</li>
+            <li>Matrix Operation</li>
         </ol>}
         />
     },

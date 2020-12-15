@@ -28,6 +28,7 @@ import IntroToJupyterNotebook from './Posts/MyPosts/IntroToJupyter';
 import BinaryIndexTree from './Posts/MyPosts/BinaryIndexTree';
 import ConstraintSatisfactionProblem from './Posts/MyPosts/ConstraintSatisfactionProblem';
 import LinearAlgebraSection1 from './Posts/MyPosts/LinearAlgebraSec1';
+import LinearAlgebraSection2 from './Posts/MyPosts/LinearAlgebraSec2';
 import EllipticalCurveSignature from './Posts/MyPosts/EllipticalCurveSignature';
 
 const BasicRoute = () => (
@@ -46,6 +47,7 @@ const BasicRoute = () => (
             <Route exact path="/posts/IntroToJupyterNotebook" component={IntroToJupyterNotebook}/>
             <Route exact path="/posts/BinaryIndexTree" component={BinaryIndexTree}/>
             <Route exact path="/posts/LinearAlgebraNote1" component={LinearAlgebraSection1}/>
+            <Route exact path="/posts/LinearAlgebraNote2" component={LinearAlgebraSection2}/>
             <Route exact path="/posts/ConstraintSatisfactionProblem" component={ConstraintSatisfactionProblem}/>
             <Route exact path="/posts/EllipticalCurveSignature" component={EllipticalCurveSignature}/>
 
