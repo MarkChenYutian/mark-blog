@@ -62,7 +62,7 @@ function USACO_Cards(){
                 content="Basic Usage of React"
                 NotesURL="notes/CS3/Week8/Notes"
                 HomeworkURL="notes/CS3/Week8/HW"
-                coverimg={`${AssetRoot}logo512.png`}
+                coverimg={`${PhotoLink}logo512.png`}
             />
 
             </Row>

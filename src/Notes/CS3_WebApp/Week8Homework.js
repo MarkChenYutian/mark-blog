@@ -3,7 +3,7 @@ import '../../App.css';
 import 'moment/locale/zh-cn';
 import 'antd/dist/antd.css';
 import '../../index.css';
-import { Layout, Typography, Button, Space, InputNumber, Slider } from 'antd';
+import { Layout, Typography, Button, Space, Alert, Slider } from 'antd';
 import './Week8Homework.css';
 import AppHeader from '../../PublicComponent/Header';
 import AppFooter from '../../PublicComponent/Footer';
@@ -154,8 +154,34 @@ class Game extends React.Component {
     const current = history[this.state.stepNumber];
     const winner = calculateWinner(current.squares, this.state.size);
 
-    const width = Math.floor(((this.state.width * 0.5) - 150) / 50);
+    const width = Math.floor(((this.state.width * 0.5) - 100) / 50);
     console.log("Board Max Width" + width);
+
+    if (width < 6){
+      return (
+        <div>
+          <Title>Tic-tac-toe Game</Title>
+          <Text>Board Size:  </Text><Slider min={5} max={width} defaultValue={5} size="small" onChange={(value) => this.setSize(value)} style={{width: "300px"}}/>
+          <Button onClick={()=>this.resetHandle()} type="primary">Reset Board</Button>
+          <div style={{height: "20px"}}></div>
+          <Paragraph>
+          The upperbound of Board size is setup in a dynamic way, according to the window's width. In this case, the the board will not overflow.
+          </Paragraph>
+          <Paragraph>
+          Notice that I use an event listner to detect the change of Window Size to prevent Board Overflow. 
+          </Paragraph>
+          <Paragraph type="danger">
+          If you change the size of window when playing, ALL RECORDS WILL BE WIPED AWAY!
+          </Paragraph>
+          <Alert
+            message="Use a Wider window to Play the Tic-tac-toe"
+            description="The window of your browser is too narrow to play the tic-tac-toe. It is impossible to play tic-tac-toe that requires 5 connected chess on a chessboard smaller than 5 x 5."
+            type="error"
+            showIcon
+          />
+        </div>
+      );
+    }
 
     const moves = history.map((step, move) => {
       const desc = move ?
@@ -181,7 +207,7 @@ class Game extends React.Component {
           <Button onClick={()=>this.resetHandle()} type="primary">Reset Board</Button>
           <div style={{height: "20px"}}></div>
           <Paragraph>
-          The upperbound of Board size is setup in a dynamic way, according to the window's height. In this case, the the board will not overflow.
+          The upperbound of Board size is setup in a dynamic way, according to the window's width. In this case, the the board will not overflow.
           </Paragraph>
           <Paragraph>
           Notice that I use an event listner to detect the change of Window Size to prevent Board Overflow. 
