@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "./static/css/main.472ebe4f.chunk.css",
+    "main.js": "./static/js/main.e21106f1.chunk.js",
+    "main.js.map": "./static/js/main.e21106f1.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.a00ab1ee.js",
+    "runtime-main.js.map": "./static/js/runtime-main.a00ab1ee.js.map",
+    "static/css/2.02999d74.chunk.css": "./static/css/2.02999d74.chunk.css",
+    "static/js/2.feb7b41a.chunk.js": "./static/js/2.feb7b41a.chunk.js",
+    "static/js/2.feb7b41a.chunk.js.map": "./static/js/2.feb7b41a.chunk.js.map",
+    "static/js/3.672c6d87.chunk.js": "./static/js/3.672c6d87.chunk.js",
+    "static/js/3.672c6d87.chunk.js.map": "./static/js/3.672c6d87.chunk.js.map",
+    "index.html": "./index.html",
+    "static/css/2.02999d74.chunk.css.map": "./static/css/2.02999d74.chunk.css.map",
+    "static/css/main.472ebe4f.chunk.css.map": "./static/css/main.472ebe4f.chunk.css.map",
+    "static/js/2.feb7b41a.chunk.js.LICENSE.txt": "./static/js/2.feb7b41a.chunk.js.LICENSE.txt",
+    "static/media/katex.min.css": "./static/media/KaTeX_Typewriter-Regular.c5441b17.ttf",
+    "static/media/TyporaGithub.css": "./static/media/open-sans-v17-latin-ext_latin-regular.4308e508.woff2"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a00ab1ee.js",
+    "static/css/2.02999d74.chunk.css",
+    "static/js/2.feb7b41a.chunk.js",
+    "static/css/main.472ebe4f.chunk.css",
+    "static/js/main.e21106f1.chunk.js"
+  ]
+}
